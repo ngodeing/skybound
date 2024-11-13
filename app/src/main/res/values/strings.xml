@@ -5,4 +5,12 @@
     <string name="title_roadmap">Roadmap</string>
     <string name="title_settings">Settings</string>
     <string name="btn_login">Login</string>
+    <string name="email_signin">Email</string>
+    <string name="password_signin">Password</string>
+    <string name="login_signin">Masuk</string>
+    <string name="signup_create_signin">Belum punya akun? Sign up di sini</string>
+    <string name="masuk_signin">Masuk</string>
+    <string name="desc_signin">Silahkan masuk menggunakan email yang telah didaftarkan</string>
+    <string name="masukkan_email_signin">Masukkan Email</string>
+    <string name="masukkan_password_signin">Masukkan Password</string>
 </resources>
