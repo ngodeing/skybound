@@ -13,4 +13,7 @@
     <string name="desc_signin">Silahkan masuk menggunakan email yang telah didaftarkan</string>
     <string name="masukkan_email_signin">Masukkan Email</string>
     <string name="masukkan_password_signin">Masukkan Password</string>
+    <string name="signup_signup">Sign Up</string>
+    <string name="daftar_signup">Daftar</string>
+    <string name="desc_signup">Silahkan masukkan data diri anda</string>
 </resources>
