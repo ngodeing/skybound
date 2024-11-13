@@ -19,4 +19,5 @@
     <color name="descriptionColor">#A8A8A8</color>
     <color name="buttonColor">#BCBCBC</color>
     <color name="buttonDarkColor">#282828</color>
+    <color name="statusBarColor">#FFFFFF</color>
 </resources>
