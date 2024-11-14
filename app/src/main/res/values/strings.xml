@@ -16,11 +16,4 @@
     <string name="signup_signup">Sign Up</string>
     <string name="daftar_signup">Daftar</string>
     <string name="desc_signup">Silahkan masukkan data diri anda</string>
-    <string name="text_questionnaire">Yay, kamu berhasil masuk! Sekarang, yuk isi kuesioner berikut ini agar kami bisa lebih paham apa yang kamu butuhkan dan siap beri pengalaman yang paling pas buat kamu</string>
-    <string name="next_questionnaire">next</string>
-    <string name="first_question_questionnaire">Pertanyaan satu</string>
-    <string name="h1_questionnaire">Silahkan isi beberapa pertanyaan dibawah untuk menentukan minat dan karir anda</string>
-    <string name="h2_questionnaire">Isi sesuai dengan keadaan anda, karena hasil akhir akan berdampak dengan jawaban anda disini</string>
-    <string name="h1_roadmap2">Berdasarkan data yang telah kami terima berikut adalah Roadmap yang sesuai dengan preferensi anda</string>
-    <string name="h2_roadmap2">Pilih salah satu roadmad dibawah dan akan kami bantu anda untuk mencapai target</string>
 </resources>

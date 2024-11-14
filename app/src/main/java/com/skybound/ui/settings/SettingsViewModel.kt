@@ -1,13 +1,20 @@
 package com.skybound.ui.settings
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
-class SettingsViewModel : ViewModel() {
+class SettingsViewModel(private val pref: SettingPreferences) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Settings Fragment"
+    fun getThemeSettings(): LiveData<Boolean> {
+        return pref.getThemeSetting().asLiveData()
     }
-    val text: LiveData<String> = _text
+
+    fun saveThemeSetting(isDarkModeActive: Boolean) {
+        viewModelScope.launch {
+            pref.saveThemeSetting(isDarkModeActive)
+        }
+    }
 }
