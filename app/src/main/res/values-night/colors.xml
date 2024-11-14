@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    custom theme skybound versi dark mode      -->
     <color name="statusBarColor">#131313</color>
+    <color name="titleColor">#FFFFFF</color>
+    <color name="buttonColor">#282828</color>
+    <color name="ic_launcher_background">#121212</color>
 </resources>

@@ -16,4 +16,8 @@
     <string name="signup_signup">Sign Up</string>
     <string name="daftar_signup">Daftar</string>
     <string name="desc_signup">Silahkan masukkan data diri anda</string>
+    <string name="logo_name">Skybound Logo</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="settings_name">Pengaturan</string>
 </resources>
