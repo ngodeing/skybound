@@ -8,9 +8,9 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/primaryColor</item>
         <item name="colorSecondaryVariant">@color/primaryVariantColor</item>
-        <item name="colorOnSecondary">@color/titleDarkColor</item>
+        <item name="colorOnSecondary">@color/titleColor</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/statusBarDarkColor</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
     </style>
