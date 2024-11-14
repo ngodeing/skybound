@@ -37,4 +37,8 @@
     <string name="user_telephone">No. Hp : 086723779292</string>
     <string name="user_birth">Tgl. Lahir : 10/10/2003</string>
     <string name="button_out">Keluar</string>
+    <string name="user_roadmap_description">Pilihan yang bagus, sekarang kami akan\nmembantu anda menjadi software engineer</string>
+    <string name="user_roadmap_name">Software Engineer</string>
+    <string name="user_sub_roadmap">Introduction to software</string>
+    <string name="user_sub_roadmap_detail">24/10/2024\nSkor : 0</string>
 </resources>
