@@ -24,4 +24,17 @@
     <string name="h2_questionnaire">Isi sesuai dengan keadaan anda, karena hasil akhir akan berdampak dengan jawaban anda disini</string>
     <string name="h1_roadmap2">Berdasarkan data yang telah kami terima berikut adalah Roadmap yang sesuai dengan preferensi anda</string>
     <string name="h2_roadmap2">Pilih salah satu roadmad dibawah dan akan kami bantu anda untuk mencapai target</string>
+    <string name="settings_name">Pengaturan</string>
+    <string name="dark_mode">Tema Gelap</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="logo_name">Skybound Logo</string>
+    <string name="user_name">Taufik Nurrohman</string>
+    <string name="user_point">567 Poin</string>
+    <string name="user_email">Email : onlytaufik47@gmail.com</string>
+    <string name="user_status">Status : Mahasiswa</string>
+    <string name="user_roadmap">Roadmap : Software Engineer</string>
+    <string name="user_gender">Gender : Laki-laki</string>
+    <string name="user_telephone">No. Hp : 086723779292</string>
+    <string name="user_birth">Tgl. Lahir : 10/10/2003</string>
+    <string name="button_out">Keluar</string>
 </resources>
