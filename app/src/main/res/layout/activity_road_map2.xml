@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/questionnaire"
     android:padding="16dp">
 
@@ -38,36 +39,13 @@
             android:background="@color/titleColor"
             android:layout_marginBottom="16dp" />
 
-        <com.google.android.material.button.MaterialButton
+        <!-- RecyclerView for dynamic content -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#CCCCCC"
             android:layout_marginStart="7dp"
             android:layout_marginEnd="7dp"
-            android:text="Stabil" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#CCCCCC"
-            android:text="Fleksibel"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="7dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#CCCCCC"
-            android:text="Kolaborasi"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="7dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#CCCCCC"
-            android:text="Berpergian"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="7dp" />
+            tools:listitem="@layout/item_roadmap2"/>
     </LinearLayout>
 </ScrollView>

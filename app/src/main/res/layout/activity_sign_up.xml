@@ -126,6 +126,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="7dp"
+            android:layout_marginBottom="40dp"
             android:text="@string/signup_signup" />
     </LinearLayout>
 </ScrollView>

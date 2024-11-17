@@ -41,4 +41,5 @@
     <string name="user_roadmap_name">Software Engineer</string>
     <string name="user_sub_roadmap">Introduction to software</string>
     <string name="user_sub_roadmap_detail">24/10/2024\nSkor : 0</string>
+    <string name="item_roadmap2">item_roadmap2</string>
 </resources>
