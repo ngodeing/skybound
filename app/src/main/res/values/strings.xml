@@ -42,4 +42,10 @@
     <string name="user_sub_roadmap">Introduction to software</string>
     <string name="user_sub_roadmap_detail">24/10/2024\nSkor : 0</string>
     <string name="item_roadmap2">item_roadmap2</string>
+    <string name="user_progress_percent">24%</string>
+    <string name="user_status_progress">On Schedule</string>
+    <string name="user_streak">7 Days Streak</string>
+    <string name="user_course_left">5 Course Left</string>
+    <string name="user_days_left">24 Days\nLeft</string>
+    <string name="your_progress">Your Progress</string>
 </resources>
