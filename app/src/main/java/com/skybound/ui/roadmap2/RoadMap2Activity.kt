@@ -42,7 +42,7 @@ class RoadMap2Activity : AppCompatActivity() {
             RoadmapItem("Softare Engineer", "24/10/2024", "0"),
             RoadmapItem("Biologist", "24/10/2024", "0"),
             RoadmapItem("Architect", "24/10/2024", "0"),
-            RoadmapItem("Doctor", "24/10/2024", "0"),
+            RoadmapItem("Doctorr", "24/10/2024", "0"),
             RoadmapItem("Attorney", "24/10/2024", "0"),
             RoadmapItem("Pengenalan DevOps", "24/10/2024", "0"),
             RoadmapItem("CI / CD", "24/10/2024", "0")
