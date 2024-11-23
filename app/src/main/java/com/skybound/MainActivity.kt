@@ -5,12 +5,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.skybound.databinding.ActivityMainBinding
-import com.skybound.ui.settings.SettingPreferences
 import com.skybound.ui.settings.SettingsViewModel
-import com.skybound.ui.settings.dataStore
 import com.skybound.ui.utils.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
@@ -24,9 +22,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//      Dark Mode
-        val pref = SettingPreferences.getInstance(applicationContext.dataStore)
-        settingsViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(SettingsViewModel::class.java)
+        // Inisialisasi SettingsViewModel menggunakan ViewModelFactory
+        val factory = ViewModelFactory.getInstance(this)
+        settingsViewModel = ViewModelProvider(this, factory)[SettingsViewModel::class.java]
+
         settingsViewModel.getThemeSettings().observe(this) { isDarkModeActive ->
             AppCompatDelegate.setDefaultNightMode(
                 if (isDarkModeActive) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
@@ -35,7 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navController = navHostFragment.navController
+
 
         navView.setupWithNavController(navController)
     }

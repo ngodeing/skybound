@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.skybound.databinding.FragmentSettingsBinding
 import com.skybound.ui.utils.ViewModelFactory
+
 
 class SettingsFragment : Fragment() {
 
@@ -25,8 +25,8 @@ class SettingsFragment : Fragment() {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val pref = SettingPreferences.getInstance(requireContext().applicationContext.dataStore)
-        settingsViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(SettingsViewModel::class.java)
+        val factory = ViewModelFactory.getInstance(requireContext())
+        settingsViewModel = ViewModelProvider(this, factory)[SettingsViewModel::class.java]
 
         settingsViewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive ->
             binding.switchTheme.isChecked = isDarkModeActive

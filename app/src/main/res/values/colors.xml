@@ -19,4 +19,7 @@
     <color name="buttonColor">#BCBCBC</color>
     <color name="statusBarColor">#FFFFFF</color>
     <color name="ic_launcher_background">#FFFFFF</color>
+
+    <color name="subtitleColor">#666666</color>
+
 </resources>

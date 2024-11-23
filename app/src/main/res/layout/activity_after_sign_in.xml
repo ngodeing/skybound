@@ -1,36 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp"
     android:id="@+id/aftersignin"
+    android:background="@color/white"
     tools:context=".ui.aftersignin.AfterSignInActivity">
 
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/titleColor"
+        android:textAlignment="center" />
+
+    <!-- Success Message -->
     <TextView
         android:id="@+id/tvSuccessMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:text="@string/text_questionnaire"
         android:textColor="@color/titleColor"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textAlignment="center" />
 
+    <ImageView
+        android:id="@+id/ivDecoration"
+        android:layout_width="265dp"
+        android:layout_height="277dp"
+        android:layout_below="@id/tvSuccessMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/decorative_image"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/pic_aftersignin_foreground" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivDecoration"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_subtitle"
+        android:textColor="@color/titleColor"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:textAlignment="center" />
+
+    <!-- Next Button -->
     <ImageButton
         android:id="@+id/btnNext"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="175dp"
-        android:layout_marginBottom="71dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_button"
         android:contentDescription="@string/next_questionnaire"
         android:scaleType="centerInside"
         android:src="@mipmap/ic_pencil_foreground" />
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_button"
+        android:contentDescription="@string/back_questionnaire"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_back_arrow" />
 </RelativeLayout>
