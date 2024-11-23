@@ -48,4 +48,10 @@
     <string name="user_course_left">5 Course Left</string>
     <string name="user_days_left">24 Days\nLeft</string>
     <string name="your_progress">Your Progress</string>
+
+
+    <string name="text_subtitle">Anda harus menjawab pertanyaan untuk melanjutkan</string>
+    <string name="back_questionnaire">Back</string>
+    <string name="decorative_image">Decorative Image</string>
+
 </resources>

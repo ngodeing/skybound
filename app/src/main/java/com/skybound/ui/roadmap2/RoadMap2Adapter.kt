@@ -1,10 +1,8 @@
-package com.skybound.ui.roadmap
+package com.skybound.ui.roadmap2
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.skybound.R
 import com.skybound.data.RoadmapItem
 import com.skybound.databinding.ItemRoadmap2Binding
 

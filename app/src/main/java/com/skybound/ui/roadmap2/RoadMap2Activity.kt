@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.skybound.R
 import com.skybound.data.RoadmapItem
 import com.skybound.databinding.ActivityRoadMap2Binding
-import com.skybound.ui.roadmap.Roadmap2Adapter
 
 class RoadMap2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityRoadMap2Binding

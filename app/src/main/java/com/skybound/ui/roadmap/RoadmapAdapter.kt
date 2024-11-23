@@ -19,7 +19,7 @@ class RoadmapAdapter(
 
         fun bind(item: RoadmapItem) {
             titleTextView.text = item.title
-            dateScoreTextView.text = "${item.date}\nSkor : ${item.score}"
+            "${item.date}\nSkor : ${item.score}".also { dateScoreTextView.text = it }
             itemView.setOnClickListener { onItemClick(item) }
         }
     }

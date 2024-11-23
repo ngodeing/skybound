@@ -17,6 +17,7 @@
             android:layout_width="189dp"
             android:layout_height="217dp"
             android:layout_gravity="center"
+            android:contentDescription="@string/logo_name"
             android:src="@mipmap/ic_launcher_round" />
 
         <TextView
