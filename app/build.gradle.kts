@@ -57,6 +57,7 @@ dependencies {
     implementation (libs.material)
     implementation (libs.flexbox)
     implementation (libs.androidx.datastore.preferences)
+    implementation (libs.glide)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
