@@ -11,8 +11,6 @@
         android:orientation="vertical">
 
         <!-- Logo/Image -->
-
-        <!-- Title Text -->
         <ImageView
             android:layout_width="189dp"
             android:layout_height="217dp"
@@ -20,6 +18,7 @@
             android:contentDescription="@string/logo_name"
             android:src="@mipmap/ic_launcher_round" />
 
+        <!-- Title Text -->
         <TextView
             android:id="@+id/tvMasuk"
             android:layout_width="wrap_content"
@@ -32,7 +31,6 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
-
         <!-- Description Text -->
         <TextView
             android:id="@+id/tvDescSignin"
@@ -41,6 +39,31 @@
             android:layout_marginStart="5dp"
             android:text="@string/desc_signup"
             android:textStyle="bold" />
+
+        <!-- Label for Username -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/username_signup"
+            android:textColor="@color/titleColor"
+            android:textStyle="bold" />
+
+        <!-- Username Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/username_hint"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Label for Email -->
         <TextView
@@ -64,7 +87,8 @@
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:hint="@string/masukkan_email_signin"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Label for Password -->
@@ -90,9 +114,11 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:hint="@string/masukkan_password_signin"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Label for Confirm Password -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,7 +128,7 @@
             android:textColor="@color/titleColor"
             android:textStyle="bold" />
 
-        <!-- Password Field -->
+        <!-- Confirm Password Field -->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -115,12 +141,119 @@
                 android:id="@+id/confPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:hint="@string/konfirmasi_password_hint"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Login Button, aligned to the right -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/status_atau_pekerjaan"
+            android:textColor="@color/titleColor"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/status_hint"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Label for Phone Number -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/phone_number_signup"
+            android:textColor="@color/titleColor"
+            android:textStyle="bold" />
+
+        <!-- Phone Number Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Masukkan nomor telepon"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Label for Date of Birth -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/date_of_birth_signup"
+            android:textColor="@color/titleColor"
+            android:textStyle="bold" />
+
+        <!-- Date of Birth Field with clickable Text -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDateOfBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/birthdate_hint" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:text="@string/gender_signup"
+            android:textColor="@color/titleColor"/>
+
+        <Spinner
+            android:id="@+id/spinnerGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <!-- Submit Button -->
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
