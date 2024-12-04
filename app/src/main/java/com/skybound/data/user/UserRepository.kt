@@ -1,5 +1,10 @@
 package com.skybound.data.user
 
+import com.skybound.data.remote.response.LoginRequest
+import com.skybound.data.remote.response.LoginResponse
+import com.skybound.data.remote.response.RegisterRequest
+import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
 import kotlinx.coroutines.flow.Flow
 
@@ -18,6 +23,26 @@ class UserRepository private constructor(
 
     suspend fun logout() {
         userPreference.logout()
+    }
+
+    suspend fun signupUser(request: RegisterRequest): RegisterResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.registerUser(request)
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Signup failed: Empty response")
+        } else {
+            throw Exception("Signup failed: ${response.message()}")
+        }
+    }
+
+    suspend fun loginUser(request: LoginRequest): LoginResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.loginUser(request)
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Login failed: Empty response")
+        } else {
+            throw Exception("Login failed: ${response.message()}")
+        }
     }
 
     companion object {
