@@ -1,15 +1,16 @@
 package com.skybound.ui.roadmap
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.skybound.R
 import com.skybound.data.RoadmapItem
+import com.skybound.ui.listcourse.ListCourseActivity
 
 class RoadmapFragment : Fragment() {
 
@@ -23,7 +24,9 @@ class RoadmapFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_roadmap, container, false)
         roadmapRecyclerView = view.findViewById(R.id.roadmap_recycler_view)
         roadmapAdapter = RoadmapAdapter(getRoadmapItems()) { item ->
-            Toast.makeText(context, "Clicked: ${item.title}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), ListCourseActivity::class.java)
+            intent.putExtra("courseTitle", item.title)
+            startActivity(intent)
         }
 
         roadmapRecyclerView.adapter = roadmapAdapter
