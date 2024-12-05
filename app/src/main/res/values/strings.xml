@@ -62,5 +62,16 @@
     <string name="user_course_body">Software adalah sekumpulan instruksi atau program yang dirancang untuk menjalankan tugas-tugas tertentu pada perangkat komputer. Berbeda dengan perangkat keras (hardware) yang merupakan komponen fisik, software bersifat tidak berwujud dan berfungsi sebagai penghubung antara pengguna dan perangkat keras untuk menjalankan operasi. Software terdiri dari beberapa jenis, seperti sistem operasi yang mengatur sumber daya komputer, aplikasi yang digunakan untuk menyelesaikan pekerjaan spesifik, serta perangkat lunak pendukung lainnya seperti driver atau utilitas. Dengan software, komputer dapat digunakan untuk berbagai keperluan, mulai dari pengolahan data hingga hiburan, sesuai dengan fungsionalitas yang dirancang oleh pengembangnya.</string>
     <string name="next_course">Materi Selanjutnya</string>
     <string name="user_sub_course_name">Pengenalan Software</string>
+    <string name="username_signup">Username</string>
+    <string name="phone_number_signup">Nomor Telepon</string>
+    <string name="date_of_birth_signup">Tanggal Lahir</string>
+    <string name="gender_signup">Jenis Kelamin</string>
+    <string name="male">Laki-Laki</string>
+    <string name="female">Perempuan</string>
+    <string name="birthdate_hint">Klik untuk memasukkan tanggal</string>
+    <string name="username_hint">Masukkan Nama</string>
+    <string name="konfirmasi_password_hint">Konfirmasi password anda</string>
+    <string name="status_hint">Pelajar/Freelancer/Guru</string>
+    <string name="status_atau_pekerjaan">Pekerjaan</string>
 
 </resources>
