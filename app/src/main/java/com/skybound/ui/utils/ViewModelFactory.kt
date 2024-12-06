@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.skybound.MainViewModel
 import com.skybound.data.user.UserRepository
 import com.skybound.di.Injection
+import com.skybound.ui.home.HomeViewModel
 import com.skybound.ui.profile.ProfileViewModel
 import com.skybound.ui.settings.SettingPreferences
 import com.skybound.ui.settings.SettingsViewModel
@@ -34,6 +35,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                HomeViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

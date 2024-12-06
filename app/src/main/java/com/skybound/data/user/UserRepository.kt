@@ -4,6 +4,7 @@ import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.UserStatusResponse
 import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
 import kotlinx.coroutines.flow.Flow
@@ -42,6 +43,16 @@ class UserRepository private constructor(
             return response.body() ?: throw Exception("Login failed: Empty response")
         } else {
             throw Exception("Login failed: ${response.message()}")
+        }
+    }
+
+    suspend fun getUserStatus(token: String): UserStatusResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.getUserStatus("Bearer $token")
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Failed to fetch user status: Empty response")
+        } else {
+            throw Exception("Failed to fetch user status: ${response.message()}")
         }
     }
 
