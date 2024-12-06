@@ -1,12 +1,15 @@
 package com.skybound.data.user
 
 import com.skybound.data.local.dao.UserDao
+import com.skybound.data.local.entity.RoadmapEntity
 import com.skybound.data.local.entity.UserEntity
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
+import com.skybound.data.remote.response.UserWithRoadmaps
 import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
 import kotlinx.coroutines.flow.Flow
@@ -67,9 +70,28 @@ class UserRepository private constructor(
         return userDao.getUserById(userId)
     }
 
+    suspend fun saveRoadmapsToDatabase(roadmaps: List<RoadmapEntity>) {
+        userDao.insertRoadmaps(roadmaps)
+    }
+
+    suspend fun getUserWithRoadmapsFromDatabase(userId: String): UserWithRoadmaps? {
+        return userDao.getUserWithRoadmaps(userId)
+    }
+
     suspend fun deleteUserFromDatabase(userId: String) {
         userDao.deleteUserById(userId)
     }
+
+    suspend fun getUser(token: String): UserResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.getUser("Bearer $token")
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Gagal mengambil data pengguna: Respon kosong")
+        } else {
+            throw Exception("Gagal mengambil data pengguna: ${response.message()}")
+        }
+    }
+
 
     companion object {
         @Volatile

@@ -1,6 +1,10 @@
 package com.skybound.data.remote.response
 
+import androidx.room.Embedded
+import androidx.room.Relation
 import com.google.gson.annotations.SerializedName
+import com.skybound.data.local.entity.RoadmapEntity
+import com.skybound.data.local.entity.UserEntity
 
 data class RegisterRequest(
 	@field:SerializedName("username")
@@ -72,9 +76,41 @@ data class LoginResponse(
 data class UserStatusResponse(
 	@SerializedName("username") val username: String,
 	@SerializedName("userPoint") val userPoint: Int,
+	@SerializedName("userPercentage") val userPercentage: Int,
 	@SerializedName("courseStatus") val courseStatus: String,
 	@SerializedName("onCourse") val onCourse: String,
 	@SerializedName("userStreak") val userStreak: Int,
 	@SerializedName("coursesLeft") val coursesLeft: Int,
 	@SerializedName("deadlineLeft") val deadlineLeft: String?
+)
+
+data class UserResponse(
+	@SerializedName("username") val username: String,
+	@SerializedName("email") val email: String,
+	@SerializedName("status") val status: String,
+	@SerializedName("gender") val gender: String,
+	@SerializedName("phoneNumber") val phoneNumber: String,
+	@SerializedName("dateOfBirth") val dateOfBirth: String,
+	@SerializedName("userPoint") val userPoint: Int,
+	@SerializedName("roadmaps") val roadmaps: List<RoadmapResponse>
+)
+
+data class RoadmapResponse(
+	val id: String,
+	val roadmapName: String,
+	val addedAt: String
+)
+
+data class Roadmap(
+	@SerializedName("id") val id: String,
+	@SerializedName("roadmapName") val roadmapName: String,
+	@SerializedName("addedAt") val addedAt: String
+)
+
+data class UserWithRoadmaps(
+	@Embedded val user: UserEntity,
+	@Relation(
+		parentColumn = "id",
+		entityColumn = "id"
+	) val roadmaps: List<RoadmapEntity>
 )

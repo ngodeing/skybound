@@ -22,10 +22,26 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
         return userRepository.getSession()
     }
 
-    fun saveUserLocally(user: UserEntity) {
+    fun mergeAndSaveUserLocally(newUser: UserEntity) {
         viewModelScope.launch {
             try {
-                userRepository.saveUserToDatabase(user)
+                val currentUser = userRepository.getUserFromDatabase(newUser.id)
+                val mergedUser = currentUser?.copy(
+                    username = if (newUser.username.isNotBlank()) newUser.username else currentUser.username,
+                    email = if (newUser.email.isNotBlank()) newUser.email else currentUser.email,
+                    phoneNumber = if (newUser.phoneNumber.isNotBlank()) newUser.phoneNumber else currentUser.phoneNumber,
+                    dateOfBirth = if (newUser.dateOfBirth.isNotBlank()) newUser.dateOfBirth else currentUser.dateOfBirth,
+                    userStreak = if (newUser.userStreak != 0) newUser.userStreak else currentUser.userStreak,
+                    userPercentage = if (newUser.userPercentage != 0) newUser.userPercentage else currentUser.userPercentage,
+                    gender = if (newUser.gender.isNotBlank()) newUser.gender else currentUser.gender,
+                    userPoint = if (newUser.userPoint != 0) newUser.userPoint else currentUser.userPoint,
+                    onCourse = if (newUser.onCourse.isNotBlank()) newUser.onCourse else currentUser.onCourse,
+                    courseStatus = if (newUser.courseStatus.isNotBlank()) newUser.courseStatus else currentUser.courseStatus,
+                    deadlineLeft = newUser.deadlineLeft ?: currentUser.deadlineLeft,
+                    status = if (newUser.status.isNotBlank()) newUser.status else currentUser.status
+                ) ?: newUser
+
+                userRepository.saveUserToDatabase(mergedUser)
             } catch (e: Exception) {
                 _error.value = e.message
             }
@@ -41,7 +57,8 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                         username = it.username,
                         userPoint = it.userPoint,
                         courseStatus = it.courseStatus,
-                        onCourse = it.onCourse ?: "",
+                        onCourse = it.onCourse,
+                        userPercentage = it.userPercentage,
                         userStreak = 0,
                         coursesLeft = 0,
                         deadlineLeft = it.deadlineLeft
@@ -60,7 +77,7 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                 val status = userRepository.getUserStatus(token)
                 _userStatus.value = status
             } catch (e: Exception) {
-                _error.value = "Gagal mengambil data dari API, mencoba memuat data lokal."
+                _error.value = "Failed Fetch, Try Access local data."
                 try {
                     val user = userRepository.getUserFromDatabase("user_id_example")
                     _userStatus.value = user?.let {
@@ -68,7 +85,8 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                             username = it.username,
                             userPoint = it.userPoint,
                             courseStatus = it.courseStatus,
-                            onCourse = it.onCourse ?: "",
+                            onCourse = it.onCourse,
+                            userPercentage = it.userPercentage,
                             userStreak = 0,
                             coursesLeft = 0,
                             deadlineLeft = it.deadlineLeft
