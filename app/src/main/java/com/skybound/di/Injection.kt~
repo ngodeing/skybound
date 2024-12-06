@@ -14,7 +14,7 @@ object Injection {
         val setPref = SettingPreferences.getInstance(context.settingDataStore)
         val database = AppDatabase.getDatabase(context)
         val userDao = database.userDao()
-        return UserRepository.getInstance(usPref, setPref, userDao)
+        return UserRepository.getInstance(usPref, settingPreferences, userDao)
     }
 
     fun provideSettingPreferences(context: Context): SettingPreferences {

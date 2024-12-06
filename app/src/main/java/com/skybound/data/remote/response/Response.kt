@@ -69,3 +69,12 @@ data class LoginResponse(
 	@field:SerializedName("message")
 	val message: String
 )
+data class UserStatusResponse(
+	@SerializedName("username") val username: String,
+	@SerializedName("userPoint") val userPoint: Int,
+	@SerializedName("courseStatus") val courseStatus: String,
+	@SerializedName("onCourse") val onCourse: String,
+	@SerializedName("userStreak") val userStreak: Int,
+	@SerializedName("coursesLeft") val coursesLeft: Int,
+	@SerializedName("deadlineLeft") val deadlineLeft: String?
+)
