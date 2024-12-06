@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
                     progressPoints.text = "${userStatus.userPoint} Poin"
                     progressStreak.text = "${userStatus.userStreak} Hari Berturut"
                     progressCoursesLeft.text = "${userStatus.coursesLeft} Materi Tersisa"
-                    progressPercentage.text = "${0}%"
+                    progressPercentage.text = "${userStatus.userPercentage}%"
                     progressIntro.text = userStatus.onCourse
                     progressTitle.text = userStatus.onCourse
                     progressDescription.text = userStatus.onCourse
@@ -63,18 +63,16 @@ class HomeFragment : Fragment() {
                     progressDaysLeft.text = "${userStatus.deadlineLeft} Hari Tersisa"
                 }
 
-                viewModel.saveUserLocally(
+                viewModel.mergeAndSaveUserLocally(
                     UserEntity(
                         id = "user_id_example",
                         username = userStatus.username,
-                        email = "",
-                        phoneNumber = "",
-                        dateOfBirth = "",
-                        gender = "",
                         userPoint = userStatus.userPoint,
+                        userStreak = userStatus.userStreak,
+                        userPercentage = userStatus.userPercentage,
                         onCourse = userStatus.onCourse,
                         courseStatus = userStatus.courseStatus,
-                        deadlineLeft = userStatus.deadlineLeft
+                        deadlineLeft = userStatus.deadlineLeft,
                     )
                 )
             } else {

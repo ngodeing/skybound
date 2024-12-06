@@ -9,11 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.skybound.data.user.User
+import com.skybound.data.local.entity.UserEntity
 import com.skybound.databinding.FragmentProfileBinding
 import com.skybound.ui.signin.SignInActivity
 import com.skybound.ui.utils.ViewModelFactory
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
@@ -44,7 +43,7 @@ class ProfileFragment : Fragment() {
                 if (token.isNotEmpty()) {
                     viewModel.fetchUser(token)
                 } else {
-                    Toast.makeText(requireContext(), "Token kosong, silakan login ulang", Toast.LENGTH_SHORT).show()
+                    viewModel.getUserLocally("user_id_example")
                 }
             }
         }
@@ -65,6 +64,19 @@ class ProfileFragment : Fragment() {
                 profileDob.text = "Tgl. Lahir: ${user.dateOfBirth}"
                 profileRoadmap.text = "Roadmap: ${user.roadmaps.firstOrNull()?.roadmapName ?: "Tidak ada"}"
             }
+            viewModel.mergeAndSaveUserLocally(
+                UserEntity(
+                    id = "user_id_example",
+                    username = user.username,
+                    email = user.email,
+                    phoneNumber = user.phoneNumber,
+                    dateOfBirth = user.dateOfBirth,
+                    gender = user.gender,
+                    userPoint = user.userPoint,
+                    status = user.status
+                )
+            )
+
         }
 
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->

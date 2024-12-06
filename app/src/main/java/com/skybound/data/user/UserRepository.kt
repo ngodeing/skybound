@@ -1,6 +1,7 @@
 package com.skybound.data.user
 
 import com.skybound.data.local.dao.UserDao
+import com.skybound.data.local.entity.RoadmapEntity
 import com.skybound.data.local.entity.UserEntity
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
@@ -8,6 +9,7 @@ import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
 import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
+import com.skybound.data.remote.response.UserWithRoadmaps
 import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
 import kotlinx.coroutines.flow.Flow
@@ -66,6 +68,14 @@ class UserRepository private constructor(
 
     suspend fun getUserFromDatabase(userId: String): UserEntity? {
         return userDao.getUserById(userId)
+    }
+
+    suspend fun saveRoadmapsToDatabase(roadmaps: List<RoadmapEntity>) {
+        userDao.insertRoadmaps(roadmaps)
+    }
+
+    suspend fun getUserWithRoadmapsFromDatabase(userId: String): UserWithRoadmaps? {
+        return userDao.getUserWithRoadmaps(userId)
     }
 
     suspend fun deleteUserFromDatabase(userId: String) {

@@ -4,12 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.skybound.data.local.dao.RoadmapDao
 import com.skybound.data.local.dao.UserDao
+import com.skybound.data.local.entity.RoadmapEntity
 import com.skybound.data.local.entity.UserEntity
 
-@Database(entities = [UserEntity::class], version = 1, exportSchema = false)
+
+@Database(entities = [UserEntity::class, RoadmapEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun roadmapDao(): RoadmapDao
 
     companion object {
         @Volatile
