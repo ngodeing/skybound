@@ -28,8 +28,8 @@
     <string name="dark_mode">Tema Gelap</string>
     <string name="konfirmasi_password">Konfirmasi Password</string>
     <string name="logo_name">Skybound Logo</string>
-    <string name="user_name">Taufik Nurrohman</string>
-    <string name="user_point">567 Poin</string>
+    <string name="user_name">Nama Kamu</string>
+    <string name="user_point">1 Poin</string>
     <string name="user_email">Email : onlytaufik47@gmail.com</string>
     <string name="user_status">Status : Mahasiswa</string>
     <string name="user_roadmap">Roadmap : Software Engineer</string>
@@ -38,16 +38,16 @@
     <string name="user_birth">Tgl. Lahir : 10/10/2003</string>
     <string name="button_out">Keluar</string>
     <string name="user_roadmap_description">Pilihan yang bagus, sekarang kami akan\nmembantu anda menjadi software engineer</string>
-    <string name="user_roadmap_name">Software Engineer</string>
-    <string name="user_sub_roadmap">Introduction to software</string>
+    <string name="user_roadmap_name">Materi Kamu</string>
+    <string name="user_sub_roadmap">Sub Materi Kamu</string>
     <string name="user_sub_roadmap_detail">24/10/2024\nSkor : 0</string>
     <string name="item_roadmap2">item_roadmap2</string>
-    <string name="user_progress_percent">24%</string>
-    <string name="user_status_progress">On Schedule</string>
-    <string name="user_streak">7 Days Streak</string>
-    <string name="user_course_left">5 Course Left</string>
-    <string name="user_days_left">24 Days\nLeft</string>
-    <string name="your_progress">Your Progress</string>
+    <string name="user_progress_percent">1%</string>
+    <string name="user_status_progress">Aktif Status</string>
+    <string name="user_streak">1 Hari Berturut</string>
+    <string name="user_course_left">1 Materi Tersisa</string>
+    <string name="user_days_left">1 Hari\nTersisa</string>
+    <string name="your_progress">Progress Kamu</string>
 
 
     <string name="text_subtitle">Anda harus menjawab pertanyaan untuk melanjutkan</string>

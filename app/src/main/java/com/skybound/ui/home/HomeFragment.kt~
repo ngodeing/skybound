@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
 
                 viewModel.saveUserLocally(
                     UserEntity(
-                        id = "user_id_example",
+                        id = "user_id_example"
                         username = userStatus.username,
                         email = "",
                         phoneNumber = "",
