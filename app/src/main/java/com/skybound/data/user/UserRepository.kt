@@ -6,6 +6,7 @@ import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
 import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
@@ -70,6 +71,17 @@ class UserRepository private constructor(
     suspend fun deleteUserFromDatabase(userId: String) {
         userDao.deleteUserById(userId)
     }
+
+    suspend fun getUser(token: String): UserResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.getUser("Bearer $token")
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Gagal mengambil data pengguna: Respon kosong")
+        } else {
+            throw Exception("Gagal mengambil data pengguna: ${response.message()}")
+        }
+    }
+
 
     companion object {
         @Volatile

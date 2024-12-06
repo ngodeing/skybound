@@ -4,6 +4,7 @@ import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
 import retrofit2.Response
 import retrofit2.http.Body
@@ -26,5 +27,10 @@ interface ApiService {
     suspend fun getUserStatus(
         @Header("Authorization") token: String
     ): Response<UserStatusResponse>
+
+    @GET("user")
+    suspend fun getUser(
+        @Header("Authorization") token: String
+    ): Response<UserResponse>
 
 }

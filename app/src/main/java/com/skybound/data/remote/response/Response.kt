@@ -78,3 +78,20 @@ data class UserStatusResponse(
 	@SerializedName("coursesLeft") val coursesLeft: Int,
 	@SerializedName("deadlineLeft") val deadlineLeft: String?
 )
+
+data class UserResponse(
+	@SerializedName("username") val username: String,
+	@SerializedName("email") val email: String,
+	@SerializedName("status") val status: String,
+	@SerializedName("gender") val gender: String,
+	@SerializedName("phoneNumber") val phoneNumber: String,
+	@SerializedName("dateOfBirth") val dateOfBirth: String,
+	@SerializedName("userPoint") val userPoint: Int,
+	@SerializedName("roadmaps") val roadmaps: List<Roadmap>
+)
+
+data class Roadmap(
+	@SerializedName("id") val id: String,
+	@SerializedName("roadmapName") val roadmapName: String,
+	@SerializedName("addedAt") val addedAt: String
+)
