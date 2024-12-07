@@ -1,29 +1,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Question Text -->
     <TextView
         android:id="@+id/questionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textColor="@color/titleColor"
-        android:visibility="gone"/>
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Question Image -->
+    <!-- Optional: Image for questions with images -->
     <ImageView
         android:id="@+id/questionImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:visibility="gone"/>
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Answer Buttons -->
+    <!-- FlexboxLayout for the options -->
     <com.google.android.flexbox.FlexboxLayout
-        android:id="@+id/buttonGroup"
+        android:id="@+id/optionsFlexboxLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" />
+        android:orientation="vertical"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>
