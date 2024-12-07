@@ -4,56 +4,95 @@
     android:id="@+id/questionnaire"
     android:padding="16dp">
 
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-<!-- Title and Description -->
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/h1_questionnaire"
-    android:textSize="24sp"
-    android:textColor="@color/titleColor"
-    android:textStyle="bold"
-    android:lineSpacingExtra="4dp"
-    android:paddingBottom="8dp"
-    android:layout_marginStart="7dp"
-    android:layout_marginEnd="7dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/h1_questionnaire"
+            android:textSize="24sp"
+            android:textColor="@color/titleColor"
+            android:textStyle="bold"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="8dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"/>
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/h2_questionnaire"
-    android:textSize="14sp"
-    android:textColor="@color/titleColor"
-    android:paddingBottom="16dp"
-    android:layout_marginStart="7dp"
-    android:layout_marginEnd="7dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/h2_questionnaire"
+            android:textSize="14sp"
+            android:textColor="@color/titleColor"
+            android:paddingBottom="16dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp" />
 
-<View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="@color/titleColor"
-    android:layout_marginBottom="16dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/titleColor"
+            android:layout_marginBottom="16dp" />
 
-<!-- RecyclerView for Questionnaire -->
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recyclerView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="7dp"
-    android:layout_marginEnd="7dp"
-    android:paddingBottom="16dp"/>
+        <!-- Question Title -->
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/primaryColor"
+            android:textAlignment="gravity"
+            android:layout_marginBottom="16dp"/>
 
-<!-- Submit Button -->
-<com.google.android.material.button.MaterialButton
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:backgroundTint="@color/primaryColor"
-    android:text="Setuju dan Lanjutkan"
-    android:layout_marginStart="7dp"
-    android:layout_marginEnd="7dp"/>
-</LinearLayout>
-    </ScrollView>
+        <!-- Optional Image for Questions -->
+        <ImageView
+            android:id="@+id/questionImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- FlexboxLayout for Options -->
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/optionsFlexboxLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Navigation Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Back Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryColor"
+                android:text="Back"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Next Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryColor"
+                android:text="Next"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="7dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
+
+
+
