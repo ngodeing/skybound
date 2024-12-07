@@ -1,16 +1,23 @@
 package com.skybound.data.user
 
+import com.skybound.data.local.dao.UserDao
+import com.skybound.data.local.entity.RoadmapEntity
+import com.skybound.data.local.entity.UserEntity
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.UserResponse
+import com.skybound.data.remote.response.UserStatusResponse
+import com.skybound.data.remote.response.UserWithRoadmaps
 import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
 import kotlinx.coroutines.flow.Flow
 
 class UserRepository private constructor(
     private val userPreference: UserPreference,
-    private val settingPreferences: SettingPreferences
+    private val settingPreferences: SettingPreferences,
+    private val userDao: UserDao
 ) {
 
     suspend fun saveSession(user: User) {
@@ -45,15 +52,57 @@ class UserRepository private constructor(
         }
     }
 
+    suspend fun getUserStatus(token: String): UserStatusResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.getUserStatus("Bearer $token")
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Failed to fetch user status: Empty response")
+        } else {
+            throw Exception("Failed to fetch user status: ${response.message()}")
+        }
+    }
+
+    suspend fun saveUserToDatabase(user: UserEntity) {
+        userDao.insertUser(user)
+    }
+
+    suspend fun getUserFromDatabase(userId: String): UserEntity? {
+        return userDao.getUserById(userId)
+    }
+
+    suspend fun saveRoadmapsToDatabase(roadmaps: List<RoadmapEntity>) {
+        userDao.insertRoadmaps(roadmaps)
+    }
+
+    suspend fun getUserWithRoadmapsFromDatabase(userId: String): UserWithRoadmaps? {
+        return userDao.getUserWithRoadmaps(userId)
+    }
+
+    suspend fun deleteUserFromDatabase(userId: String) {
+        userDao.deleteUserById(userId)
+    }
+
+    suspend fun getUser(token: String): UserResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.getUser("Bearer $token")
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Gagal mengambil data pengguna: Respon kosong")
+        } else {
+            throw Exception("Gagal mengambil data pengguna: ${response.message()}")
+        }
+    }
+
+
     companion object {
         @Volatile
         private var instance: UserRepository? = null
         fun getInstance(
             userPreference: UserPreference,
-            settingPreferences: SettingPreferences
+            settingPreferences: SettingPreferences,
+            userDao: UserDao
         ): UserRepository =
             instance ?: synchronized(this) {
-                instance ?: UserRepository(userPreference, settingPreferences)
+                instance ?: UserRepository(userPreference, settingPreferences, userDao)
             }.also { instance = it }
     }
 }
