@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val selectedCareer = intent.getStringExtra("selectedCareer")
+
         binding.root.visibility = View.INVISIBLE
 
         // Inisialisasi SettingsViewModel menggunakan ViewModelFactory

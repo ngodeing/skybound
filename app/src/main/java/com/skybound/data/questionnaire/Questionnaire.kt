@@ -13,5 +13,5 @@ data class Questionnaire(
 data class Option(
     val answerText: String,
     val answerImageUrl: String? = null,
-    val weight: Int
+    val weight: Float
 ) : Serializable

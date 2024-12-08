@@ -1,6 +1,8 @@
 package com.skybound.ui.questionnaire
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +17,8 @@ import com.google.android.flexbox.FlexboxLayout
 import com.google.android.material.button.MaterialButton
 import com.skybound.R
 import com.skybound.databinding.ActivityQuestionnaireBinding
+import com.skybound.helper.CareerPredictionHelper
+import com.skybound.ui.roadmap2.RoadMap2Activity
 
 @Suppress("DEPRECATION")
 class QuestionnaireActivity : AppCompatActivity() {
@@ -33,6 +37,9 @@ class QuestionnaireActivity : AppCompatActivity() {
 
         // Set initial question
         loadQuestion()
+
+//        binding.predictionResultText.visibility = View.VISIBLE
+//        binding.predictionResultText.text = selectedCareer
 
         // Next button functionality
         binding.nextButton.setOnClickListener {
@@ -117,7 +124,7 @@ class QuestionnaireActivity : AppCompatActivity() {
                     text = null
                 }
 
-                if (viewModel.answers[currentIndex] == option.answerText) {
+                if (viewModel.answers[question.id] == option.answerText) {
                     setBackgroundColor(resources.getColor(R.color.primaryColor))
                     selectedButton = this // Track the selected button
                 }
@@ -131,10 +138,11 @@ class QuestionnaireActivity : AppCompatActivity() {
                     setBackgroundColor(resources.getColor(R.color.primaryColor))
 
                     // Save the selected answer
-                    viewModel.saveAnswer(currentIndex, option.answerText)
+                    viewModel.saveAnswer(question.id, option.answerText)
 
                     // Update the selected button reference
                     selectedButton = this
+                    Log.d("SelectedWeight", "Option: ${option.answerText}, Weight: ${option.weight}")
                 }
             }
             binding.optionsFlexboxLayout.addView(button)
@@ -144,7 +152,7 @@ class QuestionnaireActivity : AppCompatActivity() {
     private fun showConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Konfirmasi")
-        builder.setMessage("Apakah Anda yakin dengan semua jawaban Anda?")
+        builder.setMessage("Apakah Anda yakin dengan semua jawaban Anda?\n\nSetelah ini anda tidak bisa mengubah/mengisi ulang jawaban anda")
         builder.setPositiveButton("Yakin") { dialog, _ ->
             // Proses penghitungan dan persiapan data untuk POST API
             calculateAndSubmitResults()
@@ -160,10 +168,18 @@ class QuestionnaireActivity : AppCompatActivity() {
     private fun calculateAndSubmitResults() {
         // Menghitung rata-rata skor per kategori
         val categories = listOf(
-            "Openness", "Conscientiousness", "Extraversion", "Agreeableness", "Neuroticism",
-            "Numerical Aptitude", "Spatial Aptitude", "Perceptual Aptitude", "Abstract Reasoning", "Verbal Reasoning"
+            "Openness",
+            "Conscientiousness",
+            "Extraversion",
+            "Agreeableness",
+            "Neuroticism",
+            "Numerical Aptitude",
+            "Spatial Aptitude",
+            "Perceptual Aptitude",
+            "Abstract Reasoning",
+            "Verbal Reasoning"
         )
-        val categoryScores = mutableMapOf<String, Int>()
+        val categoryScores = mutableMapOf<String, Float>()
         val categoryCounts = mutableMapOf<String, Int>()
 
         // Kategorisasi dan perhitungan rata-rata
@@ -184,54 +200,42 @@ class QuestionnaireActivity : AppCompatActivity() {
 
             question.options.forEach { option ->
                 if (viewModel.answers[question.id] == option.answerText) {
-                    categoryScores[category] = categoryScores.getOrDefault(category, 0) + option.weight
+                    categoryScores[category] =
+                        categoryScores.getOrDefault(category, 0.0f) + option.weight
                     categoryCounts[category] = categoryCounts.getOrDefault(category, 0) + 1
                 }
             }
         }
 
         // Menghitung rata-rata untuk setiap kategori
-        val categoryAverages = mutableMapOf<String, Int>()
+        val categoryAverages = mutableMapOf<String, Float>()
         categories.forEach { category ->
-            val totalScore = categoryScores[category] ?: 0
+            val totalScore = categoryScores[category] ?: 0.0f
             val totalCount = categoryCounts[category] ?: 0
-            categoryAverages[category] = if (totalCount > 0) totalScore / totalCount else 0
+            categoryAverages[category] = if (totalCount > 0) totalScore / totalCount else 0.0f
         }
 
-        // Siapkan data untuk dikirim ke API
-        val apiData = listOf(
-            ("openness" to categoryAverages["Openness"]),
-            ("conscientiousness" to categoryAverages["Conscientiousness"]),
-            ("extraversion" to categoryAverages["Extraversion"]),
-            ("agreeableness" to categoryAverages["Agreeableness"]),
-            ("neuroticism" to categoryAverages["Neuroticism"]),
-            ("numerical_aptitude" to categoryAverages["Numerical Aptitude"]),
-            ("spatial_aptitude" to categoryAverages["Spatial Aptitude"]),
-            ("perceptual_aptitude" to categoryAverages["Perceptual Aptitude"]),
-            ("abstract_reasoning" to categoryAverages["Abstract Reasoning"]),
-            ("verbal_reasoning" to categoryAverages["Verbal Reasoning"])
-        )
+        val inputFeatures = FloatArray(10).apply {
+            categoryAverages.entries.forEachIndexed { index, entry ->
+                this[index] =
+                    entry.value // Menggunakan rata-rata kategori untuk fitur input
 
-        // Lakukan POST request ke API (gunakan kode yang sesuai dengan implementasi API Anda)
-//        postResultsToApi(apiData)
+            }
+        }
+        Log.d("InputFeatures", inputFeatures.joinToString(", "))
+
+        val careerPredictionHelper = CareerPredictionHelper(this, "recommender-v2.tflite")
+        val predictedCareers = careerPredictionHelper.predictCareers(inputFeatures)
+
+        val intent = Intent(this, RoadMap2Activity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putStringArrayListExtra("predictedCareers", ArrayList(predictedCareers))
+        startActivity(intent)
+        finish()
+        // Menampilkan hasil prediksi karir
+//        val predictionResultText =
+//            "Top 3 Karir yang Direkomendasikan:\n" + predictedCareers.joinToString(", ")
+//        binding.predictionResultText.visibility = View.VISIBLE
+//        binding.predictionResultText.text = predictionResultText
     }
-
-//    private fun postResultsToApi(data: Map<String, Int>) {
-//        // Implementasi pengiriman data ke API dengan POST request
-//        // Ini adalah contoh implementasi, sesuaikan dengan API yang Anda gunakan
-//        val apiService = ApiService.create()
-//        apiService.submitResults(data).enqueue(object : Callback<ApiResponse> {
-//            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-//                if (response.isSuccessful) {
-//                    Toast.makeText(this@QuestionnaireActivity, "Data berhasil dikirim!", Toast.LENGTH_SHORT).show()
-//                } else {
-//                    Toast.makeText(this@QuestionnaireActivity, "Gagal mengirim data.", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-//                Toast.makeText(this@QuestionnaireActivity, "Terjadi kesalahan: ${t.message}", Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//    }
 }

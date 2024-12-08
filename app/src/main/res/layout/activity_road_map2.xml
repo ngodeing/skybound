@@ -40,12 +40,12 @@
             android:layout_marginBottom="16dp" />
 
         <!-- RecyclerView for dynamic content -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/optionsFlexboxLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="7dp"
-            tools:listitem="@layout/item_roadmap2"/>
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"/>
+
     </LinearLayout>
 </ScrollView>
