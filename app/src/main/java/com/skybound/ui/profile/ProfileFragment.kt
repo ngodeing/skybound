@@ -62,7 +62,7 @@ class ProfileFragment : Fragment() {
                 profileGender.text = "Jenis Kelamin: ${user.gender}"
                 profilePhone.text = "No. Telp: ${user.phoneNumber}"
                 profileDob.text = "Tgl. Lahir: ${user.dateOfBirth}"
-                profileRoadmap.text = "Roadmap: ${user.roadmaps.firstOrNull() ?: "Tidak ada"}"
+                profileRoadmap.text = "Roadmap: ${user.roadmaps}"
             }
             viewModel.mergeAndSaveUserLocally(
                 UserEntity(

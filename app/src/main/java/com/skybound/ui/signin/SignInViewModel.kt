@@ -38,10 +38,10 @@ class SignInViewModel(private val repository: UserRepository) : ViewModel() {
                     val getuser = repository.getUser(user.token)
                     val roadmap2item = Roadmap2Item(
                         title = getuser.roadmaps,
-                        null,
+                        date = "20-12-2026",
                         isRoadmap2 = true
                     )
-
+                repository.saveRoadmap(roadmap2item)
                 } catch (e: Exception) {
                     _error.value = "Failed Fetch User"
                 }
