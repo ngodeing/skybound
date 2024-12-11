@@ -73,5 +73,7 @@
     <string name="konfirmasi_password_hint">Konfirmasi password anda</string>
     <string name="status_hint">Pelajar/Freelancer/Guru</string>
     <string name="status_atau_pekerjaan">Pekerjaan</string>
+    <string name="verify_otp">Verifikasi</string>
+    <string name="otp_prompt">Masukkan kode OTP</string>
 
 </resources>

@@ -7,10 +7,14 @@ import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.RequestOTPRequest
+import com.skybound.data.remote.response.RequestOTPResponse
 import com.skybound.data.remote.response.Roadmap2Request
 import com.skybound.data.remote.response.Roadmap2Response
 import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
+import com.skybound.data.remote.response.VerifyOTPRequest
+import com.skybound.data.remote.response.VerifyOTPResponse
 import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
 import kotlinx.coroutines.flow.Flow
@@ -58,6 +62,26 @@ class UserRepository private constructor(
             return response.body() ?: throw Exception("Login failed: Empty response")
         } else {
             throw Exception("Login failed: ${response.message()}")
+        }
+    }
+
+    suspend fun requestOTP(token: String, request: RequestOTPRequest) : RequestOTPResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.requestOTP(token, request)
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Gagal Mengirim OTP: Empty response")
+        } else {
+            throw Exception("Gagal Mengirim OTP: ${response.message()}")
+        }
+    }
+
+    suspend fun verifyOTP(request: VerifyOTPRequest) : VerifyOTPResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.verifyOTP(request)
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("OTP gagal diverifikasi: Empty response")
+        } else {
+            throw Exception("OTP gagal diverifikasi: ${response.message()}")
         }
     }
 

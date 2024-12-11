@@ -12,9 +12,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -23,9 +23,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -34,18 +34,18 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
             id = 4,
             questionText = "Saya tidak tertarik dengan topik yang kompleks atau mendalam",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -54,9 +54,9 @@ object QuestionnaireList {
             id = 5,
             questionText = "Saya lebih suka rutinitas daripada mencoba hal-hal baru",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -67,9 +67,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -78,9 +78,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -89,18 +89,18 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
             id = 9,
             questionText = "Saya suka mengabaikan tanggung jawab yang telah diberikan kepada saya",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -111,9 +111,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -122,9 +122,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -133,9 +133,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -144,18 +144,18 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
             id = 14,
             questionText = "Saya tidak suka menjadi pusat perhatian dalam suatu acara atau kegiatan",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -166,9 +166,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -177,18 +177,18 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
             id = 17,
             questionText = "Saya tidak memaafkan orang lain ketika mereka melakukan kesalahan",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -199,9 +199,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -210,9 +210,9 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
@@ -221,18 +221,18 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
             id = 21,
             questionText = "Saya mudah merasa cemas ketika menghadapi situasi yang tidak pasti",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -243,18 +243,18 @@ object QuestionnaireList {
             options = listOf(
                 Option("Sangat Setuju", null, 10.0f),
                 Option("Setuju", null, 8.0f),
-                Option("Netral", null, 5.0f),
-                Option("Tidak Setuju", null, 2.0f),
-                Option("Sangat Tidak Setuju", null, 0.0f)
+                Option("Netral", null, 6.0f),
+                Option("Tidak Setuju", null, 4.0f),
+                Option("Sangat Tidak Setuju", null, 2.0f)
             )
         ),
         Questionnaire(
             id = 23,
             questionText = "Saya cenderung mudah merasa tertekan atau cemas dalam situasi yang menantang",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -263,9 +263,9 @@ object QuestionnaireList {
             id = 24,
             questionText = "Saya merasa gelisah bahkan dalam keadaan yang tenang",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -274,9 +274,9 @@ object QuestionnaireList {
             id = 25,
             questionText = "Saya sering merasa marah atau frustrasi tanpa alasan yang jelas",
             options = listOf(
-                Option("Sangat Setuju", null, 0.0f),
-                Option("Setuju", null, 2.0f),
-                Option("Netral", null, 5.0f),
+                Option("Sangat Setuju", null, 2.0f),
+                Option("Setuju", null, 4.0f),
+                Option("Netral", null, 6.0f),
                 Option("Tidak Setuju", null, 8.0f),
                 Option("Sangat Tidak Setuju", null, 10.0f)
             )
@@ -285,10 +285,10 @@ object QuestionnaireList {
             id = 26,
             questionText = "Berapa total pendapatan dari penjualan Televisi selama bulan April setelah diskon?",
             options = listOf(
-                Option("37.500.000", null, 0.0f),
+                Option("37.500.000", null, 2.5f),
                 Option("40.500.000", null, 10.0f),
-                Option("40.000.000", null, 2.0f),
-                Option("45.000.000", null, 0.0f)
+                Option("40.000.000", null, 5.0f),
+                Option("45.000.000", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_26_foreground.toString()
@@ -297,10 +297,10 @@ object QuestionnaireList {
             id = 27,
             questionText = "Berapa pendapatan bersih total dari semua produk selama bulan Juni setelah diskon?",
             options = listOf(
-                Option("150.000.000", null, 2.0f),
-                Option("158.000.000", null, 0.0f),
+                Option("150.000.000", null, 5.0f),
+                Option("158.000.000", null, 2.5f),
                 Option("152.000.000", null, 10.0f),
-                Option("160.000.000", null, 0.0f)
+                Option("160.000.000", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_26_foreground.toString()
@@ -310,9 +310,9 @@ object QuestionnaireList {
             questionText = "Berapa persentase kontribusi penjualan Mesin Cuci terhadap total pendapatan selama 4 bulan?",
             options = listOf(
                 Option("35%", null, 10.0f),
-                Option("28%", null, 0.0f),
-                Option("25%", null, 0.0f),
-                Option("30%", null, 0.0f)
+                Option("28%", null, 2.5f),
+                Option("25%", null, 2.5f),
+                Option("30%", null, 5.0f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_26_foreground.toString()
@@ -322,9 +322,9 @@ object QuestionnaireList {
             questionText = "Jika biaya produksi masing-masing produk adalah 60% dari harga satuannya, berapa keuntungan bersih dari penjualan Kulkas selama 4 bulan?",
             options = listOf(
                 Option("56.000.000", null, 10.0f),
-                Option("60.000.000", null, 0.0f),
-                Option("54.000.000", null, 2.0f),
-                Option("52.000.000", null, 0.0f)
+                Option("60.000.000", null, 2.5f),
+                Option("54.000.000", null, 5.0f),
+                Option("52.000.000", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_26_foreground.toString()
@@ -334,9 +334,9 @@ object QuestionnaireList {
             questionText = "Pada bulan apa Toko Elektronik PGS memperoleh keuntungan tertinggi?",
             options = listOf(
                 Option("April", null, 10.0f),
-                Option("Mei", null, 0.0f),
-                Option("Juni", null, 0.0f),
-                Option("Juli", null, 0.0f)
+                Option("Mei", null, 2.5f),
+                Option("Juni", null, 2.5f),
+                Option("Juli", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_26_foreground.toString()
@@ -345,10 +345,10 @@ object QuestionnaireList {
             id = 31,
             questionText = "Jika gambar diputar 90° ke arah kanan, bentuk manakah yang beanr?",
             options = listOf(
-                Option("A", R.mipmap.jawaban_a_31_foreground.toString(), 0.0f),
+                Option("A", R.mipmap.jawaban_a_31_foreground.toString(), 2.5f),
                 Option("B", R.mipmap.jawaban_b_31_foreground.toString(), 10.0f),
-                Option("C", R.mipmap.jawaban_c_31_foreground.toString(), 0.0f),
-                Option("D", R.mipmap.jawaban_d_31_foreground.toString(), 0.0f)
+                Option("C", R.mipmap.jawaban_c_31_foreground.toString(), 2.5f),
+                Option("D", R.mipmap.jawaban_d_31_foreground.toString(), 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_31_foreground.toString()
@@ -357,9 +357,9 @@ object QuestionnaireList {
             id = 32,
             questionText = "Bentuk apa saja yang dapat melengkapi pola tersebut?",
             options = listOf(
-                Option("A", R.mipmap.jawaban_a_32_foreground.toString(), 0.0f),
-                Option("B", R.mipmap.jawaban_b_32_foreground.toString(), 0.0f),
-                Option("C", R.mipmap.jawaban_c_32_foreground.toString(), 0.0f),
+                Option("A", R.mipmap.jawaban_a_32_foreground.toString(), 2.5f),
+                Option("B", R.mipmap.jawaban_b_32_foreground.toString(), 2.5f),
+                Option("C", R.mipmap.jawaban_c_32_foreground.toString(), 2.5f),
                 Option("D", R.mipmap.jawaban_d_32_foreground.toString(), 10.0f)
             ),
             isImageQuestion = true,
@@ -369,10 +369,10 @@ object QuestionnaireList {
             id = 33,
             questionText = "Kubus mana yang dapat dibuat berdasarkan pola lipatan kubus di atas?",
             options = listOf(
-                Option("A", R.mipmap.jawaban_a_33_foreground.toString(), 0.0f),
-                Option("B", R.mipmap.jawaban_b_33_foreground.toString(), 0.0f),
+                Option("A", R.mipmap.jawaban_a_33_foreground.toString(), 2.5f),
+                Option("B", R.mipmap.jawaban_b_33_foreground.toString(), 2.5f),
                 Option("C", R.mipmap.jawaban_c_33_foreground.toString(), 10.0f),
-                Option("D", R.mipmap.jawaban_d_33_foreground.toString(), 0.0f)
+                Option("D", R.mipmap.jawaban_d_33_foreground.toString(), 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_33_foreground.toString()
@@ -381,9 +381,9 @@ object QuestionnaireList {
             id = 34,
             questionText = "Tentukan pola mana yang sesuai!",
             options = listOf(
-                Option("A", null, 0.0f),
-                Option("B", null, 0.0f),
-                Option("C", null, 0.0f),
+                Option("A", null, 2.5f),
+                Option("B", null, 2.5f),
+                Option("C", null, 2.5f),
                 Option("D", null, 10.0f)
             ),
             isImageQuestion = true,
@@ -394,9 +394,9 @@ object QuestionnaireList {
             questionText = "Seekor tikus berlari di dalam labirin. Tikus itu berbelok ke kiri, lalu berbelok ke kanan, lalu berbelok ke kanan lagi. Dimanak letak tikus itu berakhir?",
             options = listOf(
                 Option("A", null, 10.0f),
-                Option("B", null, 0.0f),
-                Option("C", null, 0.0f),
-                Option("D", null, 0.0f)
+                Option("B", null, 2.5f),
+                Option("C", null, 2.5f),
+                Option("D", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_35_foreground.toString()
@@ -405,9 +405,9 @@ object QuestionnaireList {
             id = 36,
             questionText = "Sebuah kertas dilobangi seperti pada gambar. Manakah hasil yang tepat?",
             options = listOf(
-                Option("A", R.mipmap.jawaban_a_36_foreground.toString(), 0.0f),
-                Option("B", R.mipmap.jawaban_b_36_foreground.toString(), 0.0f),
-                Option("C", R.mipmap.jawaban_c_36_foreground.toString(), 0.0f),
+                Option("A", R.mipmap.jawaban_a_36_foreground.toString(), 2.5f),
+                Option("B", R.mipmap.jawaban_b_36_foreground.toString(), 2.5f),
+                Option("C", R.mipmap.jawaban_c_36_foreground.toString(), 2.5f),
                 Option("D", R.mipmap.jawaban_d_36_foreground.toString(), 10.0f)
             ),
             isImageQuestion = true,
@@ -417,10 +417,10 @@ object QuestionnaireList {
             id = 37,
             questionText = "Urutkan dari sudut terkecil",
             options = listOf(
-                Option("3-4-2-1", null, 0.0f),
-                Option("4-3-1-2", null, 0.0f),
+                Option("3-4-2-1", null, 2.5f),
+                Option("4-3-1-2", null, 2.5f),
                 Option("3-4-1-2", null, 10.0f),
-                Option("3-1-4-2", null, 0.0f)
+                Option("3-1-4-2", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_37_foreground.toString()
@@ -430,9 +430,9 @@ object QuestionnaireList {
             questionText = "Tentukan gambar yang tepat untuk tampilan samping",
             options = listOf(
                 Option("A", R.mipmap.jawaban_a_38_foreground.toString(), 10.0f),
-                Option("B", R.mipmap.jawaban_b_38_foreground.toString(), 0.0f),
-                Option("C", R.mipmap.jawaban_c_38_foreground.toString(), 0.0f),
-                Option("D", R.mipmap.jawaban_d_38_foreground.toString(), 0.0f)
+                Option("B", R.mipmap.jawaban_b_38_foreground.toString(), 2.5f),
+                Option("C", R.mipmap.jawaban_c_38_foreground.toString(), 2.5f),
+                Option("D", R.mipmap.jawaban_d_38_foreground.toString(), 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_38_foreground.toString()
@@ -441,9 +441,9 @@ object QuestionnaireList {
             id = 39,
             questionText = "Manakah pilihan yang tepat untuk menggambarkan sisi objek tersebut?",
             options = listOf(
-                Option("A", null, 0.0f),
-                Option("B", null, 0.0f),
-                Option("C", null, 0.0f),
+                Option("A", null, 2.5f),
+                Option("B", null, 2.5f),
+                Option("C", null, 2.5f),
                 Option("D", null, 10.0f)
             ),
             isImageQuestion = true,
@@ -454,9 +454,9 @@ object QuestionnaireList {
             questionText = "Berapa total keseluruhan jumlah kubus di atas?",
             options = listOf(
                 Option("16", null, 10.0f),
-                Option("14", null, 0.0f),
-                Option("17", null, 0.0f),
-                Option("15", null, 0.0f)
+                Option("14", null, 2.5f),
+                Option("17", null, 2.5f),
+                Option("15", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_40_foreground.toString()
@@ -465,10 +465,10 @@ object QuestionnaireList {
             id = 41,
             questionText = "Temukan pola yang sesuai",
             options = listOf(
-                Option("A", R.mipmap.jawaban_a_41_foreground.toString(), 0.0f),
+                Option("A", R.mipmap.jawaban_a_41_foreground.toString(), 2.5f),
                 Option("B", R.mipmap.jawaban_b_41_foreground.toString(), 10.0f),
-                Option("C", R.mipmap.jawaban_a_41_foreground.toString(), 0.0f),
-                Option("D", R.mipmap.jawaban_a_41_foreground.toString(), 0.0f)
+                Option("C", R.mipmap.jawaban_a_41_foreground.toString(), 2.5f),
+                Option("D", R.mipmap.jawaban_a_41_foreground.toString(), 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_41_foreground.toString()
@@ -477,10 +477,10 @@ object QuestionnaireList {
             id = 42,
             questionText = "Pilih kode yang sesuai untuk mengisi simpul (node) yang kosong",
             options = listOf(
-                Option("P dan T", null, 0.0f),
-                Option("P dan R", null, 0.0f),
+                Option("P dan T", null, 2.5f),
+                Option("P dan R", null, 2.5f),
                 Option("Q dan S", null, 10.0f),
-                Option("Q dan T", null, 0.0f)
+                Option("Q dan T", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_42_foreground.toString()
@@ -489,10 +489,10 @@ object QuestionnaireList {
             id = 43,
             questionText = "Temukan pola yang sesuai dan tepat",
             options = listOf(
-                Option("A", R.mipmap.jawaban_a_43_foreground.toString(), 0.0f),
-                Option("B", R.mipmap.jawaban_b_43_foreground.toString(), 0.0f),
+                Option("A", R.mipmap.jawaban_a_43_foreground.toString(), 2.5f),
+                Option("B", R.mipmap.jawaban_b_43_foreground.toString(), 2.5f),
                 Option("C", R.mipmap.jawaban_c_43_foreground.toString(), 10.0f),
-                Option("D", R.mipmap.jawaban_d_43_foreground.toString(), 0.0f)
+                Option("D", R.mipmap.jawaban_d_43_foreground.toString(), 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_43_foreground.toString()
@@ -501,9 +501,9 @@ object QuestionnaireList {
             id = 44,
             questionText = "Tentukan kode yang sesuai",
             options = listOf(
-                Option("FM", null, 0.0f),
-                Option("HK", null, 0.0f),
-                Option("GL", null, 0.0f),
+                Option("FM", null, 2.5f),
+                Option("HK", null, 2.5f),
+                Option("GL", null, 2.5f),
                 Option("HL", null, 10.0f)
             ),
             isImageQuestion = true,
@@ -513,10 +513,10 @@ object QuestionnaireList {
             id = 45,
             questionText = "Tentukan pola yang tepat untuk domino ke-6",
             options = listOf(
-                Option("A", null, 0.0f),
+                Option("A", null, 2.5f),
                 Option("B", null, 10.0f),
-                Option("C", null, 0.0f),
-                Option("D", null, 0.0f)
+                Option("C", null, 2.5f),
+                Option("D", null, 2.5f)
             ),
             isImageQuestion = true,
             questionImageUrl = R.mipmap.soal_45_foreground.toString()
@@ -527,10 +527,10 @@ object QuestionnaireList {
 
 Manakah pernyataan yang benar?""",
             options = listOf(
-                Option("Transportasi umum selalu menjadi pilihan utama masyarakat.", null, 2.0f),
+                Option("Transportasi umum selalu menjadi pilihan utama masyarakat.", null, 5.0f),
                 Option("Kendaraan pribadi digunakan untuk alasan praktis.", null, 10.0f),
-                Option("Jadwal transportasi umum selalu teratur.", null, 0.0f),
-                Option("Kendaraan pribadi lebih hemat biaya dibanding transportasi umum.", null, 0.0f)
+                Option("Jadwal transportasi umum selalu teratur.", null, 2.5f),
+                Option("Kendaraan pribadi lebih hemat biaya dibanding transportasi umum.", null, 2.5f)
             )
         ),
         Questionnaire(
@@ -539,10 +539,10 @@ Manakah pernyataan yang benar?""",
 
 Apa yang dapat disimpulkan dari kalimat di atas?""",
             options = listOf(
-                Option("Hadid tidak akan lulus ujian.", null, 0.0f),
-                Option("Semua siswa akan lulus ujian.", null, 0.0f),
+                Option("Hadid tidak akan lulus ujian.", null, 2.5f),
+                Option("Semua siswa akan lulus ujian.", null, 2.5f),
                 Option("Hadid pasti lulus ujian.", null, 10.0f),
-                Option("Hadid mungkin lulus ujian.", null, 2.0f)
+                Option("Hadid mungkin lulus ujian.", null, 5.0f)
             )
         ),
         Questionnaire(
@@ -552,9 +552,9 @@ Apa yang dapat disimpulkan dari kalimat di atas?""",
 Apa sinonim terbaik untuk kata "waspada"?""",
             options = listOf(
                 Option("Hati-hati", null, 10.0f),
-                Option("Sigap", null, 0.0f),
-                Option("Peka", null, 0.0f),
-                Option("Siap-siaga", null, 2.0f)
+                Option("Sigap", null, 2.5f),
+                Option("Peka", null, 2.5f),
+                Option("Siap-siaga", null, 5.0f)
             )
         ),
         Questionnaire(
@@ -563,10 +563,10 @@ Apa sinonim terbaik untuk kata "waspada"?""",
 
 Apa arti kata "terjangkau" dalam konteks ini?""",
             options = listOf(
-                Option("Dekat secara lokasi.", null, 0.0f),
+                Option("Dekat secara lokasi.", null, 2.5f),
                 Option("Tidak terlalu mahal.", null, 10.0f),
-                Option("Dapat diterima oleh semua orang.", null, 0.0f),
-                Option("Sangat murah.", null, 2.0f)
+                Option("Dapat diterima oleh semua orang.", null, 2.5f),
+                Option("Sangat murah.", null, 5.0f)
             )
         ),
         Questionnaire(
@@ -574,9 +574,9 @@ Apa arti kata "terjangkau" dalam konteks ini?""",
             questionText = """Petani berhubungan dengan Sawah, seperti Nelayan berhubungan dengan...""",
             options = listOf(
                 Option("Laut", null, 10.0f),
-                Option("Jala", null, 0.0f),
-                Option("Ikan", null, 2.0f),
-                Option("Perahu", null, 0.0f)
+                Option("Jala", null, 2.5f),
+                Option("Ikan", null, 5.0f),
+                Option("Perahu", null, 2.5f)
             )
         )
     )
