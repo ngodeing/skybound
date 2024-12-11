@@ -56,19 +56,23 @@ class MainActivity : AppCompatActivity() {
     private fun observeSession() {
         mainViewModel.getSession().observe(this) { user ->
             if (user.isLogin) {
-                // Jika pengguna sudah login, cek roadmap
-                mainViewModel.getRoadmap().observe(this) { roadmap ->
-                    if (roadmap.isRoadmap2) {
+                // Ambil token dari session (pastikan tersedia di model user)
+                val token = user.token ?: return@observe
+
+                // Fetch user data menggunakan token
+                mainViewModel.fetchUser(token)
+
+                mainViewModel.userResponse.observe(this) { userResponse ->
+                    if (userResponse.roadmaps != "") {
                         // Jika sudah memiliki roadmap, tampilkan BottomNavigationView
                         binding.root.visibility = View.VISIBLE
 
-                        // Setup NavigationView jika user sudah login dan memiliki roadmap
                         val navView: BottomNavigationView = binding.navView
                         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
                         val navController = navHostFragment.navController
                         navView.setupWithNavController(navController)
                     } else {
-                        // Jika sudah login tapi belum memiliki roadmap, arahkan ke AfterSignInActivity
+                        // Jika belum memiliki roadmap, arahkan ke AfterSignInActivity
                         startActivity(Intent(this, AfterSignInActivity::class.java))
                         finish()
                     }
