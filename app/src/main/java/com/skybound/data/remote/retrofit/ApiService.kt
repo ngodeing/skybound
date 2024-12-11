@@ -4,6 +4,8 @@ import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.Roadmap2Request
+import com.skybound.data.remote.response.Roadmap2Response
 import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
 import retrofit2.Response
@@ -32,5 +34,11 @@ interface ApiService {
     suspend fun getUser(
         @Header("Authorization") token: String
     ): Response<UserResponse>
+
+    @POST("user/roadmap")
+    suspend fun saveRoadmap2(
+        @Header("Authorization") token: String,
+        @Body request: Roadmap2Request
+    ): Response<Roadmap2Response>
 
 }

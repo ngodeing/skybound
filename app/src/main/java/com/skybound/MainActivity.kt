@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.skybound.databinding.ActivityMainBinding
+import com.skybound.ui.aftersignin.AfterSignInActivity
 import com.skybound.ui.settings.SettingsViewModel
 import com.skybound.ui.signin.SignInActivity
 import com.skybound.ui.utils.ViewModelFactory
@@ -55,14 +56,23 @@ class MainActivity : AppCompatActivity() {
     private fun observeSession() {
         mainViewModel.getSession().observe(this) { user ->
             if (user.isLogin) {
-                // Menampilkan UI setelah user login
-                binding.root.visibility = View.VISIBLE
+                // Jika pengguna sudah login, cek roadmap
+                mainViewModel.getRoadmap().observe(this) { roadmap ->
+                    if (roadmap.isRoadmap2) {
+                        // Jika sudah memiliki roadmap, tampilkan BottomNavigationView
+                        binding.root.visibility = View.VISIBLE
 
-                // Setup NavigationView jika user sudah login
-                val navView: BottomNavigationView = binding.navView
-                val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-                val navController = navHostFragment.navController
-                navView.setupWithNavController(navController)
+                        // Setup NavigationView jika user sudah login dan memiliki roadmap
+                        val navView: BottomNavigationView = binding.navView
+                        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+                        val navController = navHostFragment.navController
+                        navView.setupWithNavController(navController)
+                    } else {
+                        // Jika sudah login tapi belum memiliki roadmap, arahkan ke AfterSignInActivity
+                        startActivity(Intent(this, AfterSignInActivity::class.java))
+                        finish()
+                    }
+                }
             } else {
                 // Jika user belum login, arahkan ke SignInActivity
                 startActivity(Intent(this, SignInActivity::class.java))

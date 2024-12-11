@@ -76,7 +76,7 @@ class HomeFragment : Fragment() {
                     )
                 )
             } else {
-                Toast.makeText(requireContext(), "Data user tidak ditemukan", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireContext(), "Data user tidak ditemukan", Toast.LENGTH_SHORT).show()
             }
         }
 

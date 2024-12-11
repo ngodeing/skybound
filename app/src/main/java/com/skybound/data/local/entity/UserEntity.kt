@@ -17,5 +17,6 @@ data class UserEntity(
     val onCourse: String = "",
     val courseStatus: String = "",
     val deadlineLeft: String? = "",
-    val status: String = ""
+    val status: String = "",
+    val roadmap: String = ""
 )

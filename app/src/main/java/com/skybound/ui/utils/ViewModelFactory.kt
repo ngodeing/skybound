@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.skybound.MainViewModel
 import com.skybound.data.user.UserRepository
 import com.skybound.di.Injection
+import com.skybound.ui.aftersignin.AfterSignInViewModel
 import com.skybound.ui.home.HomeViewModel
 import com.skybound.ui.profile.ProfileViewModel
+import com.skybound.ui.roadmap2.RoadMap2ViewModel
 import com.skybound.ui.settings.SettingPreferences
 import com.skybound.ui.settings.SettingsViewModel
 import com.skybound.ui.signin.SignInViewModel
@@ -41,6 +43,12 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(RoadMap2ViewModel::class.java) -> {
+                RoadMap2ViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(AfterSignInViewModel::class.java) -> {
+                AfterSignInViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

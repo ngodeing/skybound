@@ -6,9 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.skybound.data.local.entity.RoadmapEntity
 import com.skybound.data.local.entity.UserEntity
-import com.skybound.data.remote.response.UserWithRoadmaps
 
 @Dao
 interface UserDao {
@@ -20,13 +18,6 @@ interface UserDao {
 
     @Query("DELETE FROM user_table WHERE id = :userId")
     suspend fun deleteUserById(userId: String)
-
-    @Transaction
-    @Query("SELECT * FROM user_table WHERE id = :userId")
-    suspend fun getUserWithRoadmaps(userId: String): UserWithRoadmaps
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRoadmaps(roadmaps: List<RoadmapEntity>)
 
     @Delete
     suspend fun deleteUser(user: UserEntity)

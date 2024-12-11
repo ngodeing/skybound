@@ -3,7 +3,6 @@ package com.skybound.data.remote.response
 import androidx.room.Embedded
 import androidx.room.Relation
 import com.google.gson.annotations.SerializedName
-import com.skybound.data.local.entity.RoadmapEntity
 import com.skybound.data.local.entity.UserEntity
 
 data class RegisterRequest(
@@ -73,6 +72,17 @@ data class LoginResponse(
 	@field:SerializedName("message")
 	val message: String
 )
+
+data class Roadmap2Response(
+	@field:SerializedName("message")
+	val message: String
+)
+
+data class Roadmap2Request(
+	@field:SerializedName("roadmapName")
+	val roadmapName: String,
+)
+
 data class UserStatusResponse(
 	@SerializedName("username") val username: String,
 	@SerializedName("userPoint") val userPoint: Int,
@@ -92,7 +102,7 @@ data class UserResponse(
 	@SerializedName("phoneNumber") val phoneNumber: String,
 	@SerializedName("dateOfBirth") val dateOfBirth: String,
 	@SerializedName("userPoint") val userPoint: Int,
-	@SerializedName("roadmaps") val roadmaps: List<RoadmapResponse>
+	@SerializedName("roadmaps") val roadmaps: String
 )
 
 data class RoadmapResponse(
@@ -105,12 +115,4 @@ data class Roadmap(
 	@SerializedName("id") val id: String,
 	@SerializedName("roadmapName") val roadmapName: String,
 	@SerializedName("addedAt") val addedAt: String
-)
-
-data class UserWithRoadmaps(
-	@Embedded val user: UserEntity,
-	@Relation(
-		parentColumn = "id",
-		entityColumn = "id"
-	) val roadmaps: List<RoadmapEntity>
 )
