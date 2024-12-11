@@ -80,7 +80,7 @@ class ProfileViewModel(private val userRepository: UserRepository) : ViewModel()
                 val user = userRepository.getUser(token)
                 _user.value = user
             } catch (e: Exception) {
-                getUserLocally("user_id_example")
+                getUserLocally("")
                 _error.value = "Failed Fetch, Try Access local data."
             }
         }

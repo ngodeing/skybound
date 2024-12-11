@@ -16,9 +16,6 @@ class RoadmapViewModel(private val repository: UserRepository) : ViewModel() {
     private val _courses = MutableLiveData<List<RoadmapItem>>()
     val courses: LiveData<List<RoadmapItem>> = _courses
 
-    fun getSession(): LiveData<User> {
-        return repository.getSession().asLiveData()
-    }
 
     fun fetchCourses(token: String) {
         viewModelScope.launch {
@@ -31,5 +28,9 @@ class RoadmapViewModel(private val repository: UserRepository) : ViewModel() {
                 Log.e("RoadmapViewModel", "Error fetching courses: ${e.message}")
             }
         }
+    }
+
+    fun getSession(): LiveData<User> {
+        return repository.getSession().asLiveData()
     }
 }
