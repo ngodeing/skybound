@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skybound.databinding.ItemCourseBinding
-import com.skybound.data.SubCourseItem
+import com.skybound.data.remote.response.SubCourseItem
 
 class CourseAdapter(
     private val items: List<SubCourseItem>

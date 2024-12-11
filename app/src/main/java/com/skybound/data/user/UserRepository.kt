@@ -3,12 +3,14 @@ package com.skybound.data.user
 import com.skybound.data.Roadmap2Item
 import com.skybound.data.local.dao.UserDao
 import com.skybound.data.local.entity.UserEntity
+import com.skybound.data.remote.response.Course
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
 import com.skybound.data.remote.response.Roadmap2Request
 import com.skybound.data.remote.response.Roadmap2Response
+import com.skybound.data.remote.response.SubCourseResponse
 import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
 import com.skybound.data.remote.retrofit.ApiConfig
@@ -102,6 +104,28 @@ class UserRepository private constructor(
             throw Exception("Gagal mengambil data pengguna: ${response.message()}")
         }
     }
+
+    suspend fun getCourses(token: String): List<Course> {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.getCourses("Bearer $token")
+        if (response.isSuccessful) {
+            return response.body()?.courses ?: emptyList()
+        } else {
+            throw Exception("Failed to fetch courses: ${response.message()}")
+        }
+    }
+
+    suspend fun getSubCourses(token: String, roadmapName: String, courseName: String): SubCourseResponse {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.getSubCourses("Bearer $token", roadmapName, courseName)
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Failed to fetch subcourses: Empty response")
+        } else {
+            throw Exception("Failed to fetch subcourses: ${response.message()}")
+        }
+    }
+
+
 
     companion object {
         @Volatile

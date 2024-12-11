@@ -35,7 +35,7 @@
     <string name="user_roadmap">Roadmap : No Roadmap</string>
     <string name="user_gender">Gender : Undefined</string>
     <string name="user_telephone">No. Hp : 0000000000</string>
-    <string name="user_birth">Tgl. Lahir : dd/mm/yyyy</string>
+    <string name="user_birth">Tgl. Lahir : 10/10/2003</string>
     <string name="button_out">Keluar</string>
     <string name="user_roadmap_description">Pilihan yang bagus, sekarang kami akan\nmembantu anda menjadi software engineer</string>
     <string name="user_roadmap_name">Roadmap Kamu</string>
