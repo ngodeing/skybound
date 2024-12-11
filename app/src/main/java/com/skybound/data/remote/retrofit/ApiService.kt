@@ -5,11 +5,15 @@ import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.RequestOTPRequest
+import com.skybound.data.remote.response.RequestOTPResponse
 import com.skybound.data.remote.response.Roadmap2Request
 import com.skybound.data.remote.response.Roadmap2Response
 import com.skybound.data.remote.response.SubCourseResponse
 import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
+import com.skybound.data.remote.response.VerifyOTPRequest
+import com.skybound.data.remote.response.VerifyOTPResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -55,5 +59,16 @@ interface ApiService {
         @Path("roadmapName") roadmapName: String,
         @Path("courseName") courseName: String
     ): Response<SubCourseResponse>
+
+    @POST("login/requestOTP")
+    suspend fun requestOTP(
+        @Header("Authorization") token: String,
+        @Body request: RequestOTPRequest
+    ): Response<RequestOTPResponse>
+
+    @POST("login/verifyOTP")
+    suspend fun verifyOTP(
+        @Body request: VerifyOTPRequest
+    ): Response<VerifyOTPResponse>
 
 }

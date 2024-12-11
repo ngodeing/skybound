@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:id="@+id/aftersignin"
-    android:background="@color/white"
+    android:background="@color/ic_launcher_background"
     tools:context=".ui.aftersignin.AfterSignInActivity">
 
     <TextView

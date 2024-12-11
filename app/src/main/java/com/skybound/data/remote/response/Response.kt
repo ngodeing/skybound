@@ -83,6 +83,29 @@ data class Roadmap2Request(
 	val roadmapName: String,
 )
 
+data class RequestOTPResponse(
+	@field:SerializedName("message")
+	val message: String
+)
+
+data class RequestOTPRequest(
+	@field:SerializedName("email")
+	val email: String
+)
+
+data class VerifyOTPResponse(
+	@field:SerializedName("message")
+	val message: String
+)
+
+data class VerifyOTPRequest(
+	@field:SerializedName("email")
+	val email: String,
+
+	@field:SerializedName("otp")
+	val otp: String
+)
+
 data class UserStatusResponse(
 	@SerializedName("username") val username: String,
 	@SerializedName("userPoint") val userPoint: Int,
