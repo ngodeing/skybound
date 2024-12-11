@@ -73,7 +73,8 @@ class ProfileFragment : Fragment() {
                     dateOfBirth = user.dateOfBirth,
                     gender = user.gender,
                     userPoint = user.userPoint,
-                    status = user.status
+                    status = user.status,
+                    roadmap = user.roadmaps
                 )
             )
 
