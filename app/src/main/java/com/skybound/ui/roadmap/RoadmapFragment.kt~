@@ -46,7 +46,7 @@ class RoadmapFragment : Fragment() {
 
         fun observeUser(token: String) {
             profileViewModel.fetchUser(token)
-            profileViewModel.user.observe(viewLifecycleOwner) { user ->
+            profileViewModel.user.observe(this) { user ->
                 titleTextView.text = user.roadmaps
             }
         }

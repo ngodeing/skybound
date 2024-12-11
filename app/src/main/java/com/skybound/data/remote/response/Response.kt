@@ -116,3 +116,28 @@ data class Roadmap(
 	@SerializedName("roadmapName") val roadmapName: String,
 	@SerializedName("addedAt") val addedAt: String
 )
+
+data class Course(
+	@SerializedName("courseName") val courseName: String
+)
+
+data class CoursesResponse(
+	@SerializedName("courses") val courses: List<Course>
+)
+
+data class SubCourseItem(
+	val title: String,
+	val description: String
+)
+
+data class SubCourseResponse(
+	val message: String,
+	val subcourses: List<SubCourse>
+)
+
+data class SubCourse(
+	val subcourseName: String,
+	val description: String
+)
+
+

@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:backgroundTint="#00BFFF"
-            android:text="@string/do_quiz"
+            android:text="@string/next_course"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

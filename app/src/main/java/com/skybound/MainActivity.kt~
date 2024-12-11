@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val selectedCareer = intent.getStringExtra("selectedCareer")
 
-
+        
 
         // Inisialisasi SettingsViewModel menggunakan ViewModelFactory
         val factory = ViewModelFactory.getInstance(this)
