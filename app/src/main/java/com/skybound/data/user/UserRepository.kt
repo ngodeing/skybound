@@ -1,15 +1,16 @@
 package com.skybound.data.user
 
+import com.skybound.data.Roadmap2Item
 import com.skybound.data.local.dao.UserDao
-import com.skybound.data.local.entity.RoadmapEntity
 import com.skybound.data.local.entity.UserEntity
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
+import com.skybound.data.remote.response.Roadmap2Request
+import com.skybound.data.remote.response.Roadmap2Response
 import com.skybound.data.remote.response.UserResponse
 import com.skybound.data.remote.response.UserStatusResponse
-import com.skybound.data.remote.response.UserWithRoadmaps
 import com.skybound.data.remote.retrofit.ApiConfig
 import com.skybound.ui.settings.SettingPreferences
 import kotlinx.coroutines.flow.Flow
@@ -24,8 +25,16 @@ class UserRepository private constructor(
         userPreference.saveSession(user)
     }
 
+    suspend fun saveRoadmap(roadmap2Item: Roadmap2Item) {
+        userPreference.saveRoadmap(roadmap2Item)
+    }
+
     fun getSession(): Flow<User> {
         return userPreference.getSession()
+    }
+
+    fun getRoadmap(): Flow<Roadmap2Item> {
+        return userPreference.getRoadmap()
     }
 
     suspend fun logout() {
@@ -52,6 +61,16 @@ class UserRepository private constructor(
         }
     }
 
+    suspend fun saveRoadmap(token: String, request: Roadmap2Request): Roadmap2Response {
+        val apiService = ApiConfig.getApiService()
+        val response = apiService.saveRoadmap2("Bearer $token", request)
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Save roadmap failed: Empty response")
+        } else {
+            throw Exception("Save roadmap failed: ${response.message()}")
+        }
+    }
+
     suspend fun getUserStatus(token: String): UserStatusResponse {
         val apiService = ApiConfig.getApiService()
         val response = apiService.getUserStatus("Bearer $token")
@@ -70,14 +89,6 @@ class UserRepository private constructor(
         return userDao.getUserById(userId)
     }
 
-    suspend fun saveRoadmapsToDatabase(roadmaps: List<RoadmapEntity>) {
-        userDao.insertRoadmaps(roadmaps)
-    }
-
-    suspend fun getUserWithRoadmapsFromDatabase(userId: String): UserWithRoadmaps? {
-        return userDao.getUserWithRoadmaps(userId)
-    }
-
     suspend fun deleteUserFromDatabase(userId: String) {
         userDao.deleteUserById(userId)
     }
@@ -91,7 +102,6 @@ class UserRepository private constructor(
             throw Exception("Gagal mengambil data pengguna: ${response.message()}")
         }
     }
-
 
     companion object {
         @Volatile

@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.skybound.data.local.entity.RoadmapEntity
 import com.skybound.data.local.entity.UserEntity
 import com.skybound.data.remote.response.RoadmapResponse
 import com.skybound.data.remote.response.UserResponse
@@ -65,7 +64,7 @@ class ProfileViewModel(private val userRepository: UserRepository) : ViewModel()
                         dateOfBirth = it.dateOfBirth,
                         gender = it.gender,
                         status = it.courseStatus,
-                        roadmaps = emptyList()
+                        roadmaps = it.roadmap
                     )
                 }
             } catch (e: Exception) {
@@ -81,35 +80,9 @@ class ProfileViewModel(private val userRepository: UserRepository) : ViewModel()
                 _user.value = user
             } catch (e: Exception) {
                 _error.value = "Failed Fetch, Try Access local data."
-                try {
-                    val localUserWithRoadmaps = userRepository.getUserWithRoadmapsFromDatabase("user_id_example")
-                    _user.value = localUserWithRoadmaps?.let {
-                        UserResponse(
-                            username = it.user.username,
-                            email = it.user.email,
-                            status = it.user.status,
-                            gender = it.user.gender,
-                            phoneNumber = it.user.phoneNumber,
-                            dateOfBirth = it.user.dateOfBirth,
-                            userPoint = it.user.userPoint,
-                            roadmaps = it.roadmaps.map { roadmap ->
-                                RoadmapResponse(
-                                    id = roadmap.id,
-                                    roadmapName = roadmap.roadmapName,
-                                    addedAt = roadmap.addedAt
-                                )
-                            }
-                        )
-                    }
-                } catch (localError: Exception) {
-                    _error.value = "Gagal memuat data lokal: ${localError.message}"
-                }
             }
         }
     }
-
-
-
 
     fun logout() {
         viewModelScope.launch {

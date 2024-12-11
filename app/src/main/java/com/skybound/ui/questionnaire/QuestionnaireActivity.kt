@@ -43,18 +43,21 @@ class QuestionnaireActivity : AppCompatActivity() {
 
         // Next button functionality
         binding.nextButton.setOnClickListener {
-            if (currentIndex < viewModel.questions.size - 1) {
-                currentIndex++
-                loadQuestion()
+            if (isQuestionAnswered()) {  // Check if the current question has been answered
+                if (currentIndex < viewModel.questions.size - 1) {
+                    currentIndex++
+                    loadQuestion()
 
-                // Jika sudah mencapai soal terakhir, ubah teks tombol menjadi "Submit"
-                if (currentIndex == viewModel.questions.size - 1) {
-                    binding.nextButton.text = "Submit"
+                    // Jika sudah mencapai soal terakhir, ubah teks tombol menjadi "Submit"
+                    if (currentIndex == viewModel.questions.size - 1) {
+                        binding.nextButton.text = "Submit"
+                    }
+                } else {
+                    showConfirmationDialog()
                 }
-
             } else {
-                // Menampilkan AlertDialog ketika pengguna menekan tombol Submit
-                showConfirmationDialog()
+                // Show a message to remind the user to answer the question
+                Toast.makeText(this, "Please select an answer before proceeding.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -143,10 +146,12 @@ class QuestionnaireActivity : AppCompatActivity() {
                     // Update the selected button reference
                     selectedButton = this
                     Log.d("SelectedWeight", "Option: ${option.answerText}, Weight: ${option.weight}")
+                    updateNextButtonState()
                 }
             }
             binding.optionsFlexboxLayout.addView(button)
         }
+        updateNextButtonState()
     }
 
     private fun showConfirmationDialog() {
@@ -163,6 +168,22 @@ class QuestionnaireActivity : AppCompatActivity() {
             dialog.dismiss()
         }
         builder.show()
+    }
+
+    private fun isQuestionAnswered(): Boolean {
+        // Check if the current question has been answered
+        return viewModel.answers[viewModel.questions[currentIndex].id] != null
+    }
+
+    private fun updateNextButtonState() {
+        // Enable/Disable Next button based on whether the current question has been answered
+        if (isQuestionAnswered()) {
+            binding.nextButton.isEnabled = true
+            binding.nextButton.setBackgroundColor(resources.getColor(R.color.primaryColor))
+        } else {
+            binding.nextButton.isEnabled = false
+            binding.nextButton.setBackgroundColor(resources.getColor(R.color.buttonColor)) // Disabled color
+        }
     }
 
     private fun calculateAndSubmitResults() {

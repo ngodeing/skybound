@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.skybound.data.Roadmap2Item
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -18,6 +19,23 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         dataStore.edit { preferences ->
             preferences[TOKEN_KEY] = user.token
             preferences[IS_LOGIN_KEY] = true
+        }
+    }
+
+    suspend fun saveRoadmap(roadmap : Roadmap2Item) {
+        dataStore.edit { preferences ->
+            preferences[ROADMAP_NAME] = roadmap.title
+            preferences[IS_ROADMAP] = true
+        }
+    }
+
+    fun getRoadmap(): Flow<Roadmap2Item> {
+        return dataStore.data.map { preferences ->
+            Roadmap2Item(
+                preferences[ROADMAP_NAME] ?: "",
+                null,
+                preferences[IS_ROADMAP] ?: false
+            )
         }
     }
 
@@ -41,7 +59,9 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         private var INSTANCE: UserPreference? = null
 
         private val TOKEN_KEY = stringPreferencesKey("token")
+        private val ROADMAP_NAME = stringPreferencesKey("roadmapName")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
+        private val IS_ROADMAP = booleanPreferencesKey("isRoadmap")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
             return INSTANCE ?: synchronized(this) {
