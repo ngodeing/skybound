@@ -7,7 +7,8 @@ import com.skybound.databinding.ItemCourseBinding
 import com.skybound.data.remote.response.SubCourseItem
 
 class CourseAdapter(
-    private val items: List<SubCourseItem>
+    private val items: List<SubCourseItem>,
+    private val onItemClick: (SubCourseItem) -> Unit
 ) : RecyclerView.Adapter<CourseAdapter.SubCourseViewHolder>() {
 
     inner class SubCourseViewHolder(private val binding: ItemCourseBinding) :
@@ -15,6 +16,9 @@ class CourseAdapter(
         fun bind(item: SubCourseItem) {
             binding.courseTitle.text = item.title
             binding.courseDescription.text = item.description
+            binding.root.setOnClickListener {
+                onItemClick(item)
+            }
         }
     }
 
