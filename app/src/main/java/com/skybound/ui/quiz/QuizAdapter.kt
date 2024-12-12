@@ -9,10 +9,35 @@ import com.skybound.databinding.ItemQuizBinding
 
 class QuizAdapter(
     private val questions: List<Question>,
-    private val onNextClicked: (Int) -> Unit
+    private val onAnswerSelected: (position: Int, isCorrect: Boolean) -> Unit
 ) : RecyclerView.Adapter<QuizAdapter.QuizViewHolder>() {
 
-    class QuizViewHolder(val binding: ItemQuizBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class QuizViewHolder(private val binding: ItemQuizBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(question: Question, position: Int) {
+            binding.questionText.text = question.question
+
+            val answer = question.distractor.toMutableList().apply {
+                add(question.answer)
+                shuffle()
+            }
+
+            binding.answerGroup.removeAllViews()
+            answer.forEach { option ->
+                val radioButton = RadioButton(binding.root.context).apply {
+                    text = option
+                }
+                binding.answerGroup.addView(radioButton)
+            }
+
+            binding.answerGroup.setOnCheckedChangeListener { _, checkedId ->
+                val selectedOption = binding.root.findViewById<RadioButton>(checkedId)?.text.toString()
+                val isCorrect = selectedOption == question.answer
+                onAnswerSelected(position, isCorrect)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizViewHolder {
         val binding = ItemQuizBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,21 +45,8 @@ class QuizAdapter(
     }
 
     override fun onBindViewHolder(holder: QuizViewHolder, position: Int) {
-        val question = questions[position]
-
-        holder.binding.questionText.text = question.Question
-
-        val options = listOf(question.Answer) + question.Distractor
-        val shuffledOptions = options.shuffled()
-
-        shuffledOptions.forEachIndexed { index, option ->
-            (holder.binding.answerGroup.getChildAt(index) as? RadioButton)?.text = option
-        }
-
-        holder.binding.nextButton.setOnClickListener {
-            onNextClicked(position)
-        }
+        holder.bind(questions[position], position)
     }
 
-    override fun getItemCount() = questions.size
+    override fun getItemCount(): Int = questions.size
 }

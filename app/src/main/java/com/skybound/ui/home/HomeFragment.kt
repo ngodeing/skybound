@@ -54,10 +54,10 @@ class HomeFragment : Fragment() {
                     userName.text = userStatus.username
                     progressPoints.text = "${userStatus.userPoint} Poin"
                     progressStreak.text = "${userStatus.userStreak} Hari Berturut"
-                    progressCoursesLeft.text = "${userStatus.coursesLeft} Materi Tersisa"
+                    progressCoursesLeft.text = "${userStatus.coursesLeft} Materi Tersedia"
                     progressPercentage.text = "${userStatus.userPercentage}%"
                     progressIntro.text = userStatus.onCourse
-                    progressTitle.text = userStatus.onCourse
+                    progressTitle.text = userStatus.roadmaps
                     progressDescription.text = userStatus.onCourse
                     onScheduleText.text = userStatus.courseStatus
                     progressDaysLeft.text = "${userStatus.deadlineLeft} Hari Tersisa"

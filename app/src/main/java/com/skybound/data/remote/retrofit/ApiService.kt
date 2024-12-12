@@ -5,6 +5,8 @@ import com.skybound.data.remote.response.GenerateQuestionRequest
 import com.skybound.data.remote.response.GenerateQuestionResponse
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
+import com.skybound.data.remote.response.PointsRequest
+import com.skybound.data.remote.response.PointsResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
 import com.skybound.data.remote.response.Roadmap2Request
@@ -60,5 +62,12 @@ interface ApiService {
 
     @POST("generate-question")
     suspend fun generateQuestion(@Body request: GenerateQuestionRequest): Response<GenerateQuestionResponse>
+
+    @POST("users/points")
+    suspend fun submitPoints(
+        @Header("Authorization") token: String,
+        @Body request: PointsRequest
+    ): Response<PointsResponse>
+
 
 }

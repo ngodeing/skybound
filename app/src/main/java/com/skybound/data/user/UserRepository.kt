@@ -8,6 +8,8 @@ import com.skybound.data.remote.response.GenerateQuestionRequest
 import com.skybound.data.remote.response.GeneratedQuestion
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
+import com.skybound.data.remote.response.PointsRequest
+import com.skybound.data.remote.response.PointsResponse
 import com.skybound.data.remote.response.RegisterRequest
 import com.skybound.data.remote.response.RegisterResponse
 import com.skybound.data.remote.response.Roadmap2Request
@@ -137,6 +139,18 @@ class UserRepository private constructor(
             throw Exception("Failed to generate questions: ${response.message()}")
         }
     }
+
+    suspend fun submitPoints(points: Int, courseName: String, token: String): PointsResponse {
+        val apiService = ApiConfig.getApiService()
+        val request = PointsRequest(points = points.toString(), courseName = courseName)
+        val response = apiService.submitPoints("Bearer $token",request)
+        if (response.isSuccessful) {
+            return response.body() ?: throw Exception("Empty response from server")
+        } else {
+            throw Exception("Failed to submit points: ${response.message()}")
+        }
+    }
+
 
 
 
