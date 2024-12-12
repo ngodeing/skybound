@@ -109,9 +109,10 @@ data class VerifyOTPRequest(
 data class UserStatusResponse(
 	@SerializedName("username") val username: String,
 	@SerializedName("userPoint") val userPoint: Int,
-	@SerializedName("userPercentage") val userPercentage: Int,
+	@SerializedName("userPercentage") val userPercentage: Float,
 	@SerializedName("courseStatus") val courseStatus: String,
 	@SerializedName("onCourse") val onCourse: String,
+	@SerializedName("totalCourses") val totalCourses: Int,
 	@SerializedName("userStreak") val userStreak: Int,
 	@SerializedName("coursesLeft") val coursesLeft: Int,
 	@SerializedName("deadlineLeft") val deadlineLeft: Int,

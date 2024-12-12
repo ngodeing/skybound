@@ -35,7 +35,7 @@ class ProfileViewModel(private val userRepository: UserRepository) : ViewModel()
                     phoneNumber = if (newUser.phoneNumber.isNotBlank()) newUser.phoneNumber else currentUser.phoneNumber,
                     dateOfBirth = if (newUser.dateOfBirth.isNotBlank()) newUser.dateOfBirth else currentUser.dateOfBirth,
                     userStreak = if (newUser.userStreak != 0) newUser.userStreak else currentUser.userStreak,
-                    userPercentage = if (newUser.userPercentage != 0) newUser.userPercentage else currentUser.userPercentage,
+                    userPercentage = if (newUser.userPercentage != 0f) newUser.userPercentage else currentUser.userPercentage,
                     gender = if (newUser.gender.isNotBlank()) newUser.gender else currentUser.gender,
                     userPoint = if (newUser.userPoint != 0) newUser.userPoint else currentUser.userPoint,
                     onCourse = if (newUser.onCourse.isNotBlank()) newUser.onCourse else currentUser.onCourse,
