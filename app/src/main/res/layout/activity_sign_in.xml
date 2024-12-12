@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:padding="16dp">
 
@@ -9,8 +10,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/signin">
-
-        <!-- Logo/Image -->
 
         <!-- Title Text -->
         <ImageView
@@ -32,8 +31,6 @@
             android:textColor="@color/titleColor"
             android:textStyle="bold" />
 
-
-
         <!-- Description Text -->
         <TextView
             android:id="@+id/tvDescSignin"
@@ -43,8 +40,47 @@
             android:text="@string/desc_signin"
             android:textStyle="bold" />
 
+        <!-- OTP Fields - Initially Hidden -->
+        <TextView
+            android:id="@+id/tvOtpPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/titleColor"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/otp_prompt"
+            android:visibility="gone" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/otpLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnVerifyOtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="7dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/verify_otp"
+            android:visibility="gone" />
+
         <!-- Label for Email -->
         <TextView
+            android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -70,6 +106,7 @@
 
         <!-- Label for Password -->
         <TextView
+            android:id="@+id/tvPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/password_signin"
@@ -80,11 +117,14 @@
 
         <!-- Password Field -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginStart="7dp"
             android:layout_marginEnd="7dp"
+            app:endIconMode="password_toggle"
+            app:endIconDrawable="@drawable/ic_eye"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
