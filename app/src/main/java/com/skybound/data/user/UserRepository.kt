@@ -4,6 +4,8 @@ import com.skybound.data.Roadmap2Item
 import com.skybound.data.local.dao.UserDao
 import com.skybound.data.local.entity.UserEntity
 import com.skybound.data.remote.response.Course
+import com.skybound.data.remote.response.GenerateQuestionRequest
+import com.skybound.data.remote.response.GeneratedQuestion
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
@@ -122,6 +124,17 @@ class UserRepository private constructor(
             return response.body() ?: throw Exception("Failed to fetch subcourses: Empty response")
         } else {
             throw Exception("Failed to fetch subcourses: ${response.message()}")
+        }
+    }
+
+    suspend fun generateQuestions(text: String): List<GeneratedQuestion> {
+        val apiService = ApiConfig.getSecondaryApiService()
+        val request = GenerateQuestionRequest(text)
+        val response = apiService.generateQuestion(request)
+        if (response.isSuccessful) {
+            return response.body()?.generatedQuestions ?: emptyList()
+        } else {
+            throw Exception("Failed to generate questions: ${response.message()}")
         }
     }
 

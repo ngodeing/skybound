@@ -61,6 +61,7 @@ class CourseActivity : AppCompatActivity() {
 
         binding.nextButton.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("description", courseViewModel.combinedDescription.value ?: "")
             startActivity(intent)
         }
     }

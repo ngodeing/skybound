@@ -140,4 +140,16 @@ data class SubCourse(
 	val description: String
 )
 
+data class GenerateQuestionRequest(
+	@SerializedName("text") val text: String
+)
 
+data class GenerateQuestionResponse(
+	@SerializedName("generated_question") val generatedQuestions: List<GeneratedQuestion>
+)
+
+data class GeneratedQuestion(
+	@SerializedName("Answer") val answer: String,
+	@SerializedName("Distractor") val distractor: List<String>,
+	@SerializedName("Question") val question: String
+)

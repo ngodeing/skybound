@@ -10,6 +10,7 @@ import com.skybound.ui.aftersignin.AfterSignInViewModel
 import com.skybound.ui.course.CourseViewModel
 import com.skybound.ui.home.HomeViewModel
 import com.skybound.ui.profile.ProfileViewModel
+import com.skybound.ui.quiz.QuizViewModel
 import com.skybound.ui.roadmap.RoadmapViewModel
 import com.skybound.ui.roadmap2.RoadMap2ViewModel
 import com.skybound.ui.settings.SettingPreferences
@@ -57,6 +58,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(CourseViewModel::class.java) -> {
                 CourseViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(QuizViewModel::class.java) -> {
+                QuizViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

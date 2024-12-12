@@ -1,6 +1,8 @@
 package com.skybound.data.remote.retrofit
 
 import com.skybound.data.remote.response.CoursesResponse
+import com.skybound.data.remote.response.GenerateQuestionRequest
+import com.skybound.data.remote.response.GenerateQuestionResponse
 import com.skybound.data.remote.response.LoginRequest
 import com.skybound.data.remote.response.LoginResponse
 import com.skybound.data.remote.response.RegisterRequest
@@ -55,5 +57,8 @@ interface ApiService {
         @Path("roadmapName") roadmapName: String,
         @Path("courseName") courseName: String
     ): Response<SubCourseResponse>
+
+    @POST("generate-question")
+    suspend fun generateQuestion(@Body request: GenerateQuestionRequest): Response<GenerateQuestionResponse>
 
 }
