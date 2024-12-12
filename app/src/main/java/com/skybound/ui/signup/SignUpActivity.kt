@@ -91,11 +91,13 @@ class SignUpActivity : AppCompatActivity() {
         signupViewModel.otpRequestResult.observe(this) { result ->
             result.onSuccess {
                 Toast.makeText(this, "OTP berhasil dikirim ke Email", Toast.LENGTH_SHORT).show()
+
                 binding.otpLayout.visibility = View.VISIBLE
                 binding.tvOtpPrompt.visibility = View.VISIBLE
                 binding.btnVerifyOtp.visibility = View.VISIBLE
                 binding.tvMasuk.text = "Isi OTP"
                 binding.tvDescSignin.text = "Silahkan masukkan OTP anda, kode OTP anda terkirim di email"
+
                 binding.tvUsername.visibility = View.INVISIBLE
                 binding.tvEmailSignup.visibility = View.INVISIBLE
                 binding.tvPasswordSignup.visibility = View.INVISIBLE
@@ -114,7 +116,9 @@ class SignUpActivity : AppCompatActivity() {
                 binding.spinnerGender.visibility = View.INVISIBLE
                 binding.btnSignUp.visibility = View.INVISIBLE
 
-
+                binding.scrollView.post {
+                    binding.scrollView.scrollTo(0, 0)
+                }
             }
 
             result.onFailure { error ->
