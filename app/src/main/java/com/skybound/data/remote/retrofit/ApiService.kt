@@ -76,7 +76,6 @@ interface ApiService {
 
     @POST("login/requestOTP")
     suspend fun requestOTP(
-        @Header("Authorization") token: String,
         @Body request: RequestOTPRequest
     ): Response<RequestOTPResponse>
 

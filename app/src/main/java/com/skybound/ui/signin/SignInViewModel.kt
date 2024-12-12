@@ -66,62 +66,62 @@ class SignInViewModel(private val repository: UserRepository) : ViewModel() {
         }
     }
 
-    fun requestOTP(email: String, password: String) {
-        viewModelScope.launch {
-            try {
-                val response = repository.loginUser(LoginRequest(email, password))
-                val user = User(
-                    token = response.token,
-                    isLogin = true
-                )
-                try {
-                    val getuser = repository.getUser(user.token)
-                    val roadmap2item = Roadmap2Item(
-                        title = getuser.roadmaps,
-                        date = "20-12-2026",
-                        isRoadmap2 = true
-                    )
-                    repository.saveRoadmap(roadmap2item)
-                    try {
-                        val response2 = repository.requestOTP(user.token, RequestOTPRequest(email))
-                        _otpRequestResult.postValue(Result.success(response2))
-                        verifyUser = user
-
-                    } catch (e: Exception) {
-                        _otpRequestResult.postValue(Result.failure(e))
-                    }
-                } catch (e: Exception) {
-                    _error.value = "Failed Fetch User"
-                }
-                _loginResult.postValue(Result.success(response))
-            } catch (e: Exception) {
-                _loginResult.value = Result.failure(e)
-            } finally {
-                _isLoading.value = false
-            }
-        }
-    }
-
-    fun verifyOTP(email: String, otp: String) {
-        viewModelScope.launch {
-            try {
-                val response = repository.verifyOTP(VerifyOTPRequest(email, otp))
-                _otpVerifyResult.postValue(Result.success(response))
-                repository.saveSession(verifyUser)
-            } catch (e: Exception) {
-                _otpVerifyResult.postValue(Result.failure(e))
-            }
-        }
-    }
-
-    fun logout() {
-        viewModelScope.launch {
-            repository.logout()
-            verifyUser = User(
-                token = "",
-                isLogin = false
-            )
-        }
-    }
+//    fun requestOTP(email: String, password: String) {
+//        viewModelScope.launch {
+//            try {
+//                val response = repository.loginUser(LoginRequest(email, password))
+//                val user = User(
+//                    token = response.token,
+//                    isLogin = true
+//                )
+//                try {
+//                    val getuser = repository.getUser(user.token)
+//                    val roadmap2item = Roadmap2Item(
+//                        title = getuser.roadmaps,
+//                        date = "20-12-2026",
+//                        isRoadmap2 = true
+//                    )
+//                    repository.saveRoadmap(roadmap2item)
+//                    try {
+//                        val response2 = repository.requestOTP(user.token, RequestOTPRequest(email))
+//                        _otpRequestResult.postValue(Result.success(response2))
+//                        verifyUser = user
+//
+//                    } catch (e: Exception) {
+//                        _otpRequestResult.postValue(Result.failure(e))
+//                    }
+//                } catch (e: Exception) {
+//                    _error.value = "Failed Fetch User"
+//                }
+//                _loginResult.postValue(Result.success(response))
+//            } catch (e: Exception) {
+//                _loginResult.value = Result.failure(e)
+//            } finally {
+//                _isLoading.value = false
+//            }
+//        }
+//    }
+//
+//    fun verifyOTP(email: String, otp: String) {
+//        viewModelScope.launch {
+//            try {
+//                val response = repository.verifyOTP(VerifyOTPRequest(email, otp))
+//                _otpVerifyResult.postValue(Result.success(response))
+//                repository.saveSession(verifyUser)
+//            } catch (e: Exception) {
+//                _otpVerifyResult.postValue(Result.failure(e))
+//            }
+//        }
+//    }
+//
+//    fun logout() {
+//        viewModelScope.launch {
+//            repository.logout()
+//            verifyUser = User(
+//                token = "",
+//                isLogin = false
+//            )
+//        }
+//    }
 }
 
