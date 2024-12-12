@@ -61,7 +61,8 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                         userPercentage = it.userPercentage,
                         userStreak = 0,
                         coursesLeft = 0,
-                        deadlineLeft = it.deadlineLeft
+                        deadlineLeft = it.deadlineLeft,
+                        roadmaps = it.roadmap
                     )
                 }
             } catch (e: Exception) {
@@ -89,7 +90,8 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                             userPercentage = it.userPercentage,
                             userStreak = 0,
                             coursesLeft = 0,
-                            deadlineLeft = it.deadlineLeft
+                            deadlineLeft = it.deadlineLeft,
+                            roadmaps = it.roadmap
                         )
                     }
                 } catch (localError: Exception) {

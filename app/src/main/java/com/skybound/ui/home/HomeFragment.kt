@@ -1,6 +1,7 @@
 package com.skybound.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,10 +55,10 @@ class HomeFragment : Fragment() {
                     userName.text = userStatus.username
                     progressPoints.text = "${userStatus.userPoint} Poin"
                     progressStreak.text = "${userStatus.userStreak} Hari Berturut"
-                    progressCoursesLeft.text = "${userStatus.coursesLeft} Materi Tersisa"
+                    progressCoursesLeft.text = "${userStatus.coursesLeft} Materi Tersedia"
                     progressPercentage.text = "${userStatus.userPercentage}%"
                     progressIntro.text = userStatus.onCourse
-                    progressTitle.text = userStatus.onCourse
+                    progressTitle.text = userStatus.roadmaps
                     progressDescription.text = userStatus.onCourse
                     onScheduleText.text = userStatus.courseStatus
                     progressDaysLeft.text = "${userStatus.deadlineLeft} Hari Tersisa"
@@ -76,13 +77,13 @@ class HomeFragment : Fragment() {
                     )
                 )
             } else {
-//                Toast.makeText(requireContext(), "Data user tidak ditemukan", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Data user tidak ditemukan", Toast.LENGTH_SHORT).show()
             }
         }
 
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             if (errorMessage != null) {
-                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+                Log.e("Error", errorMessage)
             }
         }
     }

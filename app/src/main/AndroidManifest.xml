@@ -53,6 +53,10 @@
             android:exported="true">
         </activity>
         <activity
+            android:name=".ui.quiz.QuizActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
