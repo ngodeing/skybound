@@ -23,39 +23,39 @@ class QuizViewModel(private val repository: UserRepository) : ViewModel() {
                 // Dummy data mimicking the API response
                 val dummyQuestions = listOf(
                     GeneratedQuestion(
-                        question = "Apa bahasa pemrograman yang paling populer saat ini?",
-                        answer = "JavaScript",
-                        distractor = listOf("Python", "Java", "C#")
+                        question = "Komunisme sering disalahartikan dengan apa?",
+                        answer = "komunisme internasional",
+                        distractor = listOf("komunisme")
                     ),
                     GeneratedQuestion(
-                        question = "Apa yang dimaksud dengan framework dalam pengembangan perangkat lunak?",
-                        answer = "Kerangka kerja untuk membangun aplikasi",
-                        distractor = listOf("Library", "Database", "Server")
+                        question = "Apa ideologi dasar yang digunakan oleh partai komunis di seluruh dunia?",
+                        answer = "komunisme",
+                        distractor = listOf("tanah", "partai politik", "populasi")
                     ),
                     GeneratedQuestion(
-                        question = "Apa itu API dalam pengembangan perangkat lunak?",
-                        answer = "Antarmuka Pemrograman Aplikasi",
-                        distractor = listOf("Aplikasi", "Pengguna", "Internet")
+                        question = "Apa yang datang dari ide-ide Lenin?",
+                        answer = "Marxisme-leninism",
+                        distractor = listOf("pikiran", "Vladimir_Ilyich_Lenin", "Nikolai_ Lenin")
                     ),
                     GeneratedQuestion(
-                        question = "Apa itu metodologi Agile dalam pengembangan perangkat lunak?",
-                        answer = "Pendekatan yang berfokus pada kolaborasi dan iterasi cepat",
-                        distractor = listOf("Pengembangan berorientasi objek", "Pengujian perangkat lunak", "Manajemen proyek")
+                        question = "Perubahan sosial dimulai dengan tenaga kerja atau, lebih umum lagi, dengan proletariat, tapi organisasi tenaga kerja itu hanya bisa berhasil melalui apa?",
+                        answer = "perjuangan",
+                        distractor = listOf("pergeseran", "organisasi", "proletariat")
                     ),
                     GeneratedQuestion(
-                        question = "Apa yang dimaksud dengan Continuous Integration (CI)?",
-                        answer = "Proses menggabungkan kode dari banyak pengembang secara rutin",
-                        distractor = listOf("Automasi testing", "Version control", "Debugging")
+                        question = "Apa yang dibutuhkan partai untuk menjadi think tank?,",
+                        answer = "pesta",
+                        distractor = listOf("merenungkan", "perusahaan", "cerebrate")
                     ),
                     GeneratedQuestion(
-                        question = "Apa yang dimaksud dengan debugging dalam pemrograman?",
-                        answer = "Proses mencari dan memperbaiki bug dalam kode",
-                        distractor = listOf("Pembuatan dokumentasi", "Desain sistem", "Pengujian unit")
+                        question = "Apa yang dapat ditanamkan jika terjadi karena poliburo?",
+                        answer = "perubahan sosial",
+                        distractor = emptyList()
                     ),
                     GeneratedQuestion(
-                        question = "Apa yang dimaksud dengan Full Stack Developer?",
-                        answer = "Pengembang yang dapat bekerja pada bagian frontend dan backend aplikasi",
-                        distractor = listOf("Frontend Developer", "Backend Developer", "DevOps Engineer")
+                        question = "Apa yang memperkenalkan penggunaan sistem perwakilan demokratis oleh elit partai komunis, karena itu sangat membatasi demokrasi secara langsung pada orang-orang yang bukan anggota partai komunis, karena dalam pengertian komunisme, tidak ada hak-hak pribadi yang diketahui, seperti dalam pengertian liberalisme?",
+                        answer = "komunisme",
+                        distractor = listOf("sensory_faculty", "kemakmuran", "skema")
                     )
                 )
                 // Simulate the response

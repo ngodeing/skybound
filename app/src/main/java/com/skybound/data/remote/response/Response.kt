@@ -91,7 +91,7 @@ data class UserStatusResponse(
 	@SerializedName("onCourse") val onCourse: String,
 	@SerializedName("userStreak") val userStreak: Int,
 	@SerializedName("coursesLeft") val coursesLeft: Int,
-	@SerializedName("deadlineLeft") val deadlineLeft: String?,
+	@SerializedName("deadlineLeft") val deadlineLeft: Int,
 	@SerializedName("roadmaps") val roadmaps: String
 )
 
