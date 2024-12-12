@@ -32,13 +32,14 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                     phoneNumber = if (newUser.phoneNumber.isNotBlank()) newUser.phoneNumber else currentUser.phoneNumber,
                     dateOfBirth = if (newUser.dateOfBirth.isNotBlank()) newUser.dateOfBirth else currentUser.dateOfBirth,
                     userStreak = if (newUser.userStreak != 0) newUser.userStreak else currentUser.userStreak,
-                    userPercentage = if (newUser.userPercentage != 0) newUser.userPercentage else currentUser.userPercentage,
+                    userPercentage = if (newUser.userPercentage != 0f) newUser.userPercentage else currentUser.userPercentage,
                     gender = if (newUser.gender.isNotBlank()) newUser.gender else currentUser.gender,
                     userPoint = if (newUser.userPoint != 0) newUser.userPoint else currentUser.userPoint,
                     onCourse = if (newUser.onCourse.isNotBlank()) newUser.onCourse else currentUser.onCourse,
                     courseStatus = if (newUser.courseStatus.isNotBlank()) newUser.courseStatus else currentUser.courseStatus,
                     deadlineLeft = newUser.deadlineLeft ?: currentUser.deadlineLeft,
-                    status = if (newUser.status.isNotBlank()) newUser.status else currentUser.status
+                    status = if (newUser.status.isNotBlank()) newUser.status else currentUser.status,
+                    roadmap = if (newUser.roadmap.isNotBlank()) newUser.roadmap else currentUser.roadmap
                 ) ?: newUser
 
                 userRepository.saveUserToDatabase(mergedUser)
@@ -62,7 +63,8 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                         userStreak = 0,
                         coursesLeft = 0,
                         deadlineLeft = it.deadlineLeft,
-                        roadmaps = it.roadmap
+                        roadmaps = it.roadmap,
+                        totalCourses = it.totalCourses
                     )
                 }
             } catch (e: Exception) {
@@ -91,7 +93,8 @@ class HomeViewModel(private val userRepository: UserRepository) : ViewModel() {
                             userStreak = 0,
                             coursesLeft = 0,
                             deadlineLeft = it.deadlineLeft,
-                            roadmaps = it.roadmap
+                            roadmaps = it.roadmap,
+                            totalCourses = it.totalCourses
                         )
                     }
                 } catch (localError: Exception) {

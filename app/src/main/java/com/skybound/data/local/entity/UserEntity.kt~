@@ -14,7 +14,7 @@ data class UserEntity(
     val userPoint: Int = 0,
     val totalCourses: Int = 0,
     val userStreak: Int = 0,
-    val userPercentage: Float = 0f,
+    val userPercentage: Float = 0.0,
     val onCourse: String = "",
     val courseStatus: String = "",
     val deadlineLeft: Int = 0,
