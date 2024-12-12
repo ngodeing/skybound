@@ -67,9 +67,9 @@ class UserRepository private constructor(
         }
     }
 
-    suspend fun requestOTP(token: String, request: RequestOTPRequest) : RequestOTPResponse {
+    suspend fun requestOTP(request: RequestOTPRequest) : RequestOTPResponse {
         val apiService = ApiConfig.getApiService()
-        val response = apiService.requestOTP(token, request)
+        val response = apiService.requestOTP(request)
         if (response.isSuccessful) {
             return response.body() ?: throw Exception("Gagal Mengirim OTP: Empty response")
         } else {

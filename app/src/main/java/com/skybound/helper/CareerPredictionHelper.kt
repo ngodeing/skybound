@@ -5,7 +5,7 @@ import org.tensorflow.lite.Interpreter
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
-class CareerPredictionHelper(context: Context, private val modelPath: String) {
+class CareerPredictionHelper(context: Context, modelPath: String) {
 
     private val interpreter: Interpreter
 

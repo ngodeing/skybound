@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -54,50 +55,96 @@ class SignUpActivity : AppCompatActivity() {
             val name = binding.etUsername.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
+            val confPassword = binding.confPassword.text.toString().trim()
             val phoneNumber = binding.etPhoneNumber.text.toString().trim()
             val dateOfBirth = binding.etDateOfBirth.text.toString().trim()
             val gender = binding.spinnerGender.selectedItem.toString()
             val status = binding.etStatus.text.toString().trim()
 
-            if (name.isEmpty()) {
-                binding.etUsername.error = "Nama tidak boleh kosong"
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || phoneNumber.isEmpty() || dateOfBirth.isEmpty() || status.isEmpty()) {
+                Toast.makeText(this, "Harap lengkapi semua form", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (email.isEmpty()) {
-                binding.etEmail.error = "Email tidak boleh kosong"
-                return@setOnClickListener
-            }
-
-            if (password.isEmpty()) {
-                binding.etPassword.error = "Password tidak boleh kosong"
-                return@setOnClickListener
-            }
-
-            if (phoneNumber.isEmpty()) {
-                binding.etPhoneNumber.error = "Nomor telepon tidak boleh kosong"
-                return@setOnClickListener
-            }
-
-            if (dateOfBirth.isEmpty()) {
-                binding.etDateOfBirth.error = "Tanggal lahir telepon tidak boleh kosong"
-                return@setOnClickListener
-            }
-
-            if (status.isEmpty()) {
-                binding.etStatus.error = "Tanggal lahir telepon tidak boleh kosong"
+            if (password != confPassword) {
+                Toast.makeText(this, "Password dan Konfirmasi Password tidak sama", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             // Call signup ViewModel to submit to API
-            signupViewModel.signup(name, email, password, phoneNumber, dateOfBirth, gender, status)
+            signupViewModel.requestOTP(email)
+        }
+        binding.btnVerifyOtp.setOnClickListener {
+            val otp = binding.etOtp.text.toString().trim()
+
+            if (otp.isEmpty()) {
+                Toast.makeText(this, "Masukkan OTP yang valid", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val email = binding.etEmail.text.toString().trim()
+            signupViewModel.verifyOTP(email, otp)
         }
     }
 
     private fun observeViewModel() {
+        signupViewModel.otpRequestResult.observe(this) { result ->
+            result.onSuccess {
+                Toast.makeText(this, "OTP berhasil dikirim ke Email", Toast.LENGTH_SHORT).show()
+                binding.otpLayout.visibility = View.VISIBLE
+                binding.tvOtpPrompt.visibility = View.VISIBLE
+                binding.btnVerifyOtp.visibility = View.VISIBLE
+                binding.tvMasuk.text = "Isi OTP"
+                binding.tvDescSignin.text = "Silahkan masukkan OTP anda, kode OTP anda terkirim di email"
+                binding.tvUsername.visibility = View.INVISIBLE
+                binding.tvEmailSignup.visibility = View.INVISIBLE
+                binding.tvPasswordSignup.visibility = View.INVISIBLE
+                binding.tvConfirmPw.visibility = View.INVISIBLE
+                binding.tvPekerjaan.visibility = View.INVISIBLE
+                binding.tvTelepon.visibility = View.INVISIBLE
+                binding.tvBirthdate.visibility = View.INVISIBLE
+                binding.tvGender.visibility = View.INVISIBLE
+                binding.edtUsername.visibility = View.INVISIBLE
+                binding.edtEmail.visibility = View.INVISIBLE
+                binding.edtPassword.visibility = View.INVISIBLE
+                binding.edtconfPassword.visibility = View.INVISIBLE
+                binding.edtStatus.visibility = View.INVISIBLE
+                binding.edtPhoneNumber.visibility = View.INVISIBLE
+                binding.edtDateOfBirth.visibility = View.INVISIBLE
+                binding.spinnerGender.visibility = View.INVISIBLE
+                binding.btnSignUp.visibility = View.INVISIBLE
+
+
+            }
+
+            result.onFailure { error ->
+                Toast.makeText(this, "Gagal mengirim OTP: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+        signupViewModel.otpVerifyResult.observe(this) { result ->
+            result.onSuccess {
+                // OTP verified, proceed with sign up
+                val name = binding.etUsername.text.toString().trim()
+                val email = binding.etEmail.text.toString().trim()
+                val password = binding.etPassword.text.toString().trim()
+                val phoneNumber = binding.etPhoneNumber.text.toString().trim()
+                val dateOfBirth = binding.etDateOfBirth.text.toString().trim()
+                val gender = binding.spinnerGender.selectedItem.toString()
+                val status = binding.etStatus.text.toString().trim()
+
+                signupViewModel.signup(name, email, password, phoneNumber, dateOfBirth, gender, status)
+                signupViewModel.signupResult.observe(this) {
+
+                }
+            }
+
+            result.onFailure { error ->
+                Toast.makeText(this, "Verifikasi OTP gagal: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
         signupViewModel.signupResult.observe(this) { result ->
-            result.onSuccess { response ->
-                AlertDialog.Builder(this).apply {
+            result.onSuccess {
+                    AlertDialog.Builder(this).apply {
                     setTitle("Berhasil!")
                     setMessage("Akun berhasil dibuat.")
                     setPositiveButton("Lanjutkan") { _, _ -> finish() }
@@ -107,8 +154,7 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             result.onFailure { error ->
-                binding.tvErrorMessage.text = error.message
-                binding.tvErrorMessage.visibility = View.VISIBLE
+                Toast.makeText(this, "Pendaftaran gagal: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -40,44 +40,6 @@
             android:text="@string/desc_signin"
             android:textStyle="bold" />
 
-        <!-- OTP Fields - Initially Hidden -->
-        <TextView
-            android:id="@+id/tvOtpPrompt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/titleColor"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="7dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/otp_prompt"
-            android:visibility="gone" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otpLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="7dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:visibility="gone">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etOtp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnVerifyOtp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginEnd="7dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/verify_otp"
-            android:visibility="gone" />
-
         <!-- Label for Email -->
         <TextView
             android:id="@+id/tvEmail"

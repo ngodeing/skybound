@@ -41,8 +41,47 @@
             android:text="@string/desc_signup"
             android:textStyle="bold" />
 
+        <!-- OTP Fields - Initially Hidden -->
+        <TextView
+            android:id="@+id/tvOtpPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/titleColor"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/otp_prompt"
+            android:visibility="gone" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/otpLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnVerifyOtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="7dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/verify_otp"
+            android:visibility="gone" />
+
         <!-- Label for Username -->
         <TextView
+            android:id="@+id/tvUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -53,6 +92,7 @@
 
         <!-- Username Field -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_username"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,6 +108,7 @@
 
         <!-- Label for Email -->
         <TextView
+            android:id="@+id/tvEmailSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -78,6 +119,7 @@
 
         <!-- Email Field -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtEmail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,6 +136,7 @@
 
         <!-- Label for Password -->
         <TextView
+            android:id="@+id/tvPasswordSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -104,6 +147,7 @@
 
         <!-- Password Field -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtPassword"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,6 +167,7 @@
 
         <!-- Label for Confirm Password -->
         <TextView
+            android:id="@+id/tvConfirmPw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -133,6 +178,7 @@
 
         <!-- Confirm Password Field -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtconfPassword"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -151,6 +197,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/tvPekerjaan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -160,6 +207,7 @@
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtStatus"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,6 +224,7 @@
 
         <!-- Label for Phone Number -->
         <TextView
+            android:id="@+id/tvTelepon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -186,6 +235,7 @@
 
         <!-- Phone Number Field -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtPhoneNumber"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -202,6 +252,7 @@
 
         <!-- Label for Date of Birth -->
         <TextView
+            android:id="@+id/tvBirthdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -212,6 +263,7 @@
 
         <!-- Date of Birth Field with clickable Text -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtDateOfBirth"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
