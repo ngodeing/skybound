@@ -64,6 +64,7 @@ interface ApiService {
         @Path("courseName") courseName: String
     ): Response<SubCourseResponse>
 
+<<<<<<< HEAD
     @POST("generate-question")
     suspend fun generateQuestion(@Body request: GenerateQuestionRequest): Response<GenerateQuestionResponse>
 
@@ -73,7 +74,7 @@ interface ApiService {
         @Body request: PointsRequest
     ): Response<PointsResponse>
 
-
+=======
     @POST("login/requestOTP")
     suspend fun requestOTP(
         @Header("Authorization") token: String,
@@ -84,5 +85,6 @@ interface ApiService {
     suspend fun verifyOTP(
         @Body request: VerifyOTPRequest
     ): Response<VerifyOTPResponse>
+>>>>>>> e6cee12576ed09bbc25558915bddf3070e852528
 
 }

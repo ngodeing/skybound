@@ -114,7 +114,8 @@ data class UserStatusResponse(
 	@SerializedName("onCourse") val onCourse: String,
 	@SerializedName("userStreak") val userStreak: Int,
 	@SerializedName("coursesLeft") val coursesLeft: Int,
-	@SerializedName("deadlineLeft") val deadlineLeft: String?
+	@SerializedName("deadlineLeft") val deadlineLeft: Int,
+	@SerializedName("roadmaps") val roadmaps: String
 )
 
 data class UserResponse(
@@ -161,6 +162,30 @@ data class SubCourseResponse(
 data class SubCourse(
 	val subcourseName: String,
 	val description: String
+)
+
+data class GenerateQuestionRequest(
+	@SerializedName("text") val text: String
+)
+
+data class GenerateQuestionResponse(
+	@SerializedName("generated_question") val generatedQuestions: List<GeneratedQuestion>
+)
+
+data class GeneratedQuestion(
+	@SerializedName("Answer") val answer: String,
+	@SerializedName("Distractor") val distractor: List<String>,
+	@SerializedName("Question") val question: String
+)
+
+data class PointsRequest(
+	@SerializedName("Points") val points: String,
+	@SerializedName("courseName") val courseName: String
+)
+
+data class PointsResponse(
+	@SerializedName("message") val message: String,
+	@SerializedName("updatedUserPoint") val updatedUserPoint: Int
 )
 
 

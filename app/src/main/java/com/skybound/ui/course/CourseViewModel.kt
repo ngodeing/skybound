@@ -15,19 +15,27 @@ class CourseViewModel(private val repository: UserRepository) : ViewModel() {
 
     private val _subCourses = MutableLiveData<List<SubCourseItem>>()
     val subCourses: LiveData<List<SubCourseItem>> = _subCourses
+    private val _combinedDescription = MutableLiveData<String>()
+    val combinedDescription: LiveData<String> = _combinedDescription
 
     fun fetchSubCourses(token: String, roadmapName: String, courseName: String) {
         viewModelScope.launch {
             try {
                 val response = repository.getSubCourses(token, roadmapName, courseName)
-                _subCourses.value = response.subcourses.map {
+                val subCourses = response.subcourses.map {
                     SubCourseItem(it.subcourseName, it.description)
                 }
+                _subCourses.value = subCourses
+
+                // Gabungkan semua deskripsi
+                val combinedDescription = subCourses.joinToString(separator = "\n\n") { it.description }
+                _combinedDescription.value = combinedDescription
             } catch (e: Exception) {
                 Log.e("CourseViewModel", "Error fetching subcourses: ${e.message}")
             }
         }
     }
+
     fun getSession(): LiveData<User> {
         return repository.getSession().asLiveData()
     }
