@@ -74,5 +74,7 @@
     <string name="status_atau_pekerjaan">Pekerjaan</string>
     <string name="verify_otp">Verifikasi</string>
     <string name="otp_prompt">Masukkan kode OTP</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
 
 </resources>
